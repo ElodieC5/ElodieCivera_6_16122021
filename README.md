@@ -1,6 +1,9 @@
-# Base de code du projet P6 - Parcours Front-end
+# OpenClassrooms - Parcours Développement Front-End : Projet 6.
+Créez un site accessible pour une plateforme de photographes : “FishEye”
 
-## Démarrer le projet
+## Compétences évaluées
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+Gérer les évènements d'un site avec JavaScript  
+Développer une application web modulaire avec des design patterns  
+Ecrire du code JavaScript maintenable  
+Assurer l'accessibilité d'un site web  
