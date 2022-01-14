@@ -1,5 +1,11 @@
     async function getPhotographers() {
+        
         // Penser à remplacer par les données récupérées dans le json
+
+  fetch("./data/photographers.json")
+  .then( data => data.json())
+  .then(data => console.log(data))
+
         const photographers = [
             {
                 "name": "Ma data test",
@@ -21,8 +27,11 @@
             },
         ]
         // et bien retourner le tableau photographers seulement une fois
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
+        return (
+           {
+            photographers: [...photographers, ...photographers, ...photographers]
+            }
+        )
     }
 
     async function displayData(photographers) {
