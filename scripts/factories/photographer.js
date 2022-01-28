@@ -1,20 +1,51 @@
+
+// Creating Photographer Card
 function photographerFactory(data) {
-    const { name, portrait } = data;
+
+    // Destructuring "data" parameter to assign variables to properties
+    const { name, id, city, country, tagline, price, portrait} = data;
 
     const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
+    const linkTo = `photographer.html`;
 
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        const h2 = document.createElement( 'h2' );
+
+        const article = document.createElement( "article" );
+        
+        const img = document.createElement( "img" );
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", " ");
+        img.setAttribute("aria-label", name);
+        
+        const h2 = document.createElement( "h2" );
         h2.textContent = name;
-        article.appendChild(img);
-        article.appendChild(h2);
+
+        const link = document.createElement( "a");
+        link.setAttribute("href", linkTo);
+        
+        const pLoc = document.createElement( "p" );
+        pLoc.classList.add("lieu");
+        pLoc.textContent = `${city}, ${country}`;
+        
+        const pTag = document.createElement( "p" );
+        pTag.textContent = `${tagline}`;
+        pTag.classList.add("devise");
+
+        const pPrice = document.createElement( "p" );
+        pPrice.textContent = `${price}€/jour`;
+        pPrice.classList.add("prix");
+
+        article.appendChild(link);
+        link.appendChild(img);
+        link.appendChild(h2);
+        article.appendChild(pLoc);
+        article.appendChild(pTag);
+        article.appendChild(pPrice);
         return (article);
     }
     return { name, picture, getUserCardDOM }
 }
+
 
 // class MoviesFactory {
 //     constructor(data, type) {
