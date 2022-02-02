@@ -1,13 +1,14 @@
 
-// Creating Photographer Card
+// Create Photographer Card 
 function photographerFactory(data) {
 
     // Destructuring "data" parameter to assign variables to properties
     const { name, id, city, country, tagline, price, portrait} = data;
 
     const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
-    const linkTo = `photographer.html`;
+    const linkTo = `photographer.html?id=${id}`;
 
+    // Create photographer card into index page
     function getUserCardDOM() {
 
         const article = document.createElement( "article" );
@@ -43,7 +44,7 @@ function photographerFactory(data) {
         article.appendChild(pPrice);
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+    return { name, id, city, country, tagline, price, linkTo, picture, getUserCardDOM }
 }
 
 
