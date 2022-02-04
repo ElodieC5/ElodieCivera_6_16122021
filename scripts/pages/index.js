@@ -9,7 +9,7 @@
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
-        // Create individual card for each photographer
+        // Create individual card into index page for each photographer
         photographers.forEach((photographer) => {
             const photographerModel = photographerFactory(photographer);
             const userCardDOM = photographerModel.getUserCardDOM();
@@ -23,6 +23,6 @@
         displayData(photographers);
     };
     
-// Call to initialization (3)
+// Call to initialize (3)
     init();
     

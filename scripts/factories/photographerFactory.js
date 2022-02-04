@@ -1,3 +1,4 @@
+let photographerModel;
 
 // Create Photographer Card 
 function photographerFactory(data) {
@@ -44,7 +45,23 @@ function photographerFactory(data) {
         article.appendChild(pPrice);
         return (article);
     }
-    return { name, id, city, country, tagline, price, linkTo, picture, getUserCardDOM }
+
+    // ??? Tentative de créer une section dans page photographer sans faire de fetch ???
+    function getPhotographerCardDOM () {
+        const article = document.createElement( "article" );
+        
+        const img = document.createElement( "img" );
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", " ");
+        img.setAttribute("aria-label", name);
+        
+        article.appendChild(img);
+
+        return (article);
+    }
+
+    // ??? initialement seulement return {name, picture, getUserCardDOM} - ici tentative d'accéder à l'objet entier de partout ???
+    return photographerModel = { name, id, city, country, tagline, price, linkTo, picture, getUserCardDOM, getPhotographerCardDOM }
 }
 
 
