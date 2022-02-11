@@ -3,29 +3,35 @@
 
 
 
+
 window.addEventListener("load", () => {
+    // console.log(getPhotographers());
     const searchParams = new URLSearchParams(window.location.search);
     const photographerId = searchParams.get("id");
 
-    console.log(searchParams);
     console.log(photographerId);
 
-// ??? comment accéder à l'objet photographerModel tjrs undefined alors que reconnu dans page index ???
-   photographerFactory (photographerModel[`id: ${photographerId}`]);
+    photographerFactory();
 
-
-
-
-
+    if (photographerId === photographerModel.id) {
+            alert(`this is ${photographerModel.name}`)
+            return photographerModel;
+            } else {
+            alert ("Error")
+        
+    };
 
     // for (const i of photographerModel) {
     //     if (photographerId === photographerModel.id) {
+    //     alert(`this is ${photographerModel.name}`)
     //     return photographerModel;
-    // //     alert(`this is ${photographerModel.name}`)
-    // } else {
+    //     } else {
     //     alert ("Error")
     // }
     // }
+
+// ??? comment accéder à l'objet photographerModel tjrs undefined alors que reconnu dans page index ???
+   photographerFactory (photographerModel[`id: ${photographerId}`]);
 
     });
 
