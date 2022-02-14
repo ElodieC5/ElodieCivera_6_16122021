@@ -1,5 +1,5 @@
 
-// (2) Create photographer_section into index page
+// (2) Create photographer_section into index page (calling Factory & CardDOM)
 
     async function displayData() {
         const { photographers } = allData;
@@ -8,9 +8,10 @@
         // Create individual card into index page for each photographer
         photographers.forEach((photographer) => {
             const photographerModel = photographerFactory(photographer);
-            const userCardDOM = photographerModel.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
+            const CardDOM = photographerModel.getCardDOM();
+            photographersSection.appendChild(CardDOM);
         });
     };
+
 
 

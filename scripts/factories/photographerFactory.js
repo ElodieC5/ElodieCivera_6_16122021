@@ -1,16 +1,16 @@
-let photographerModel;
+// let photographerModel;
 
 // Create Photographer Card 
-function photographerFactory(data) {
+function photographerFactory(allData) {
 
-    // Destructuring "data" parameter to assign variables to properties
-    const { name, id, city, country, tagline, price, portrait} = data;
+    // Destructuring "allData" parameter to assign variables to properties
+    const { name, id, city, country, tagline, price, portrait} = allData;
 
     const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
     const linkTo = `photographer.html?id=${id}`;
 
     // Create photographer card into index page
-    function getUserCardDOM() {
+    function getCardDOM() {
 
         const article = document.createElement( "article" );
         
@@ -47,21 +47,21 @@ function photographerFactory(data) {
     }
 
     // ??? Tentative de créer une section dans page photographer sans faire de fetch ???
-    function getPhotographerCardDOM () {
-        const article = document.createElement( "article" );
+    // function getPhotographerCardDOM () {
+    //     const article = document.createElement( "article" );
         
-        const img = document.createElement( "img" );
-        img.setAttribute("src", picture);
-        img.setAttribute("alt", " ");
-        img.setAttribute("aria-label", name);
+    //     const img = document.createElement( "img" );
+    //     img.setAttribute("src", `assets/photographers/Photographers ID Photos/${selectedPhotographer.portrait}`);
+    //     img.setAttribute("alt", " ");
+    //     img.setAttribute("aria-label", name);
         
-        article.appendChild(img);
+    //     article.appendChild(img);
 
-        return (article);
-    }
+    //     return (article);
+    // }
 
-    // ??? initialement seulement return {name, picture, getUserCardDOM} - ici tentative d'accéder à l'objet entier de partout ???
-    return photographerModel = { name, id, city, country, tagline, price, linkTo, picture, getUserCardDOM, getPhotographerCardDOM }
+    // ??? initialement seulement return {name, picture, getCardDOM} - ici tentative d'accéder à l'objet entier de partout ???
+    return photographerModel = { name, id, city, country, tagline, price, linkTo, picture, getCardDOM }
 }
 
 
