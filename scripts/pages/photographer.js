@@ -2,21 +2,23 @@
 //
 
 const searchParams = new URLSearchParams(window.location.search);
-const photographerId = searchParams.get("id");
+const photographerIdUrl = searchParams.get("id");
 
-window.addEventListener("load", () => {
+// window.addEventListener("load", () => {
 
-    console.log(photographerId);
+//     console.log(photographerId);
     
-});
+// });
 
-function displayData() {
-    const { photographers, media } = allData;
+async function displayData() {
+    const { photographers, media } = await getPhotographers();
+    console.log(photographers);
     const photographersSection = document.querySelector(".photograph-header");
     
     const selectedPhotographer = photographers.filter(
-        (elt) => elt.id == photographerId
-        )
+        (photographer) => photographer.id === photographerIdUrl
+        );
+    
         console.log(selectedPhotographer);
         console.log(photographers);
         
@@ -30,6 +32,8 @@ function displayData() {
             return (photographersSection);
     // }
 };
+
+displayData();
 
 
     // // Create individual card into index page for each photographer

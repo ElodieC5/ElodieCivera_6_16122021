@@ -1,17 +1,17 @@
 // let photographerModel;
 
 // Create Photographer Card 
-function photographerFactory(allData) {
+function photographerFactory(params1) {
 
     // Destructuring "allData" parameter to assign variables to properties
-    const { name, id, city, country, tagline, price, portrait} = allData;
+    const { name, id, city, country, tagline, price, portrait} = params1;
 
-    const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
-    const linkTo = `photographer.html?id=${id}`;
-
+    
     // Create photographer card into index page
     function getCardDOM() {
-
+        
+        const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
+        const linkTo = `photographer.html?id=${id}`;
         const article = document.createElement( "article" );
         
         const img = document.createElement( "img" );
@@ -79,3 +79,4 @@ function photographerFactory(allData) {
 //         }
 //     }
 //  }
+
