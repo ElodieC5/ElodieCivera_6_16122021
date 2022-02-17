@@ -12,20 +12,21 @@ const photographerIdUrl = searchParams.get("id");
 
 async function displayData() {
     const { photographers, media } = await getPhotographers();
-    console.log(photographers);
+
     const photographersSection = document.querySelector(".photograph-header");
     
+    console.log(photographers);
+
     const selectedPhotographer = photographers.filter(
-        (photographer) => photographer.id === photographerIdUrl
+        (photographer) => photographer.id == photographerIdUrl
         );
     
         console.log(selectedPhotographer);
-        console.log(photographers);
         
             const img = document.createElement( "img" );
-            img.setAttribute("src", `assets/photographers/Photographers ID Photos/${selectedPhotographer.portrait}`);
+            img.setAttribute("src", `assets/photographers/Photographers ID Photos/${selectedPhotographer[0].portrait}`);
             img.setAttribute("alt", " ");
-            img.setAttribute("aria-label", `${selectedPhotographer.name}`);
+            img.setAttribute("aria-label", `${selectedPhotographer[0].name}`);
             
             photographersSection.appendChild(img);
             
