@@ -1,7 +1,5 @@
 
-// Main script to collect, return & destructure json data into an "allData" object
-
-
+// Main script to collect json data
 
 async function getPhotographers() {
     return fetch("./data/photographers.json")

@@ -1,14 +1,94 @@
-#contact_modal {
-    display: none;
-}
 
 .photograph-header {
+    position: relative;
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    height: 313px;
+    margin: 100px;
+    border-radius: 5px;
+}
+
+/* .photograph-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+} */
+
+/* .photograph-header article {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.photograph-header article img {
+    position: absolute;
+
+right: 5%;
+top: 18%;
+bottom: 18%;
+    height: 200px;
+    width: 200px;
+    border-radius: 200px;
+    object-fit: cover;
+}
+
+.photograph-header article h2 {
+    position: absolute;
+left: 3%;
+top: 0%;
+
+    height: 83px;
+    color: #D3573C;
+    font-size: 64px;
+    font-weight: 400;
+    margin: 1em 0 0;
+}
+
+.photograph-header article p {
+    margin: 0.4em 0 0;
+}
+
+.photograph-header article p.lieu  {
+    position: absolute;
+left: 3%;
+top: 48%;
+bottom: 43%;
+    height: 31px;
+    color: #901C1C;
+    font-size: 24px;
+}
+
+.photograph-header article p.devise {
+    position: absolute;
+left: 3%;
+top: 66.5%;
+bottom: 22%;
+    height: 23px;
+    color: #525252;
+    font-size: 18px;
+}
+
+.photograph-header article p.prix {
+    width: 376px;
+    height: 89px;
+    position: fixed;
+    right: 3%;
+    bottom: 0%;
+    background: #DB8876;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: right;
+    padding: 3%;
+    box-sizing: border-box;
 }
 
 .contact_button {
+position: absolute;
+left: 43.15%;
+right: 43.15%;
+top: 137px;
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -21,6 +101,9 @@
     cursor: pointer;
 }
 
+#contact_modal {
+    display: none;
+}
 .modal {
     border-radius: 5px;
     background-color: #DB8876;

@@ -17,23 +17,49 @@ async function displayData() {
     
     console.log(photographers);
 
-    const selectedPhotographer = photographers.filter(
+    const selectedPhotographers = photographers.filter(
         (photographer) => photographer.id == photographerIdUrl
         );
+
+    const selectedPhotographer = selectedPhotographers[0]
+
     
         console.log(selectedPhotographer);
-        
-            const img = document.createElement( "img" );
-            img.setAttribute("src", `assets/photographers/Photographers ID Photos/${selectedPhotographer[0].portrait}`);
-            img.setAttribute("alt", " ");
-            img.setAttribute("aria-label", `${selectedPhotographer[0].name}`);
-            
-            photographersSection.appendChild(img);
-            
-            return (photographersSection);
-    // }
-};
+    
+        const photographerModel = photographerFactory(selectedPhotographer);
+        console.log(photographerModel);
+        const CardDOM = photographerModel.getCardDOM();
+        photographersSection.appendChild(CardDOM);
+        const article = document.querySelector("article");
+        console.log(article);
+        const link = article.querySelector("a");
+        console.log(link);
+        article.removeChild(link);
 
+        
+        const picture = `assets/photographers/Photographers ID Photos/${selectedPhotographer.portrait}`;
+        
+        const img = document.createElement( "img" );
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", " ");
+        img.setAttribute("aria-label", selectedPhotographer.name);
+        
+        const h2 = document.createElement( "h2" );
+        h2.textContent = selectedPhotographer.name;
+        article.appendChild(img);
+        article.appendChild(h2);
+        
+        // const img = document.createElement( "img" );
+        // img.setAttribute("src", `assets/photographers/Photographers ID Photos/${selectedPhotographer[0].portrait}`);
+        // img.setAttribute("alt", " ");
+        // img.setAttribute("aria-label", `${selectedPhotographer[0].name}`);
+        
+        // photographersSection.appendChild(img);
+        
+        // return (photographersSection);
+        // }
+    };
+    
 displayData();
 
 

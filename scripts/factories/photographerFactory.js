@@ -1,18 +1,17 @@
-// let photographerModel;
 
 // Create Photographer Card 
 function photographerFactory(params1) {
 
-    // Destructuring "allData" parameter to assign variables to properties
+    // Destructuring data to assign variables to properties
     const { name, id, city, country, tagline, price, portrait} = params1;
 
-    const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
-    const linkTo = `photographer.html?id=${id}`;
     
-    // Create photographer card into index page
+    // Create photographer card
     function getCardDOM() {
         
         const article = document.createElement( "article" );
+        const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
+        const linkTo = `photographer.html?id=${id}`;
         
         const img = document.createElement( "img" );
         img.setAttribute("src", picture);
@@ -34,7 +33,7 @@ function photographerFactory(params1) {
         pTag.classList.add("devise");
 
         const pPrice = document.createElement( "p" );
-        pPrice.textContent = `${price}€/jour`;
+        pPrice.textContent = `${price}€ / jour`;
         pPrice.classList.add("prix");
 
         article.appendChild(link);
@@ -46,22 +45,8 @@ function photographerFactory(params1) {
         return (article);
     }
 
-    // ??? Tentative de créer une section dans page photographer sans faire de fetch ???
-    // function getPhotographerCardDOM () {
-    //     const article = document.createElement( "article" );
-        
-    //     const img = document.createElement( "img" );
-    //     img.setAttribute("src", `assets/photographers/Photographers ID Photos/${selectedPhotographer.portrait}`);
-    //     img.setAttribute("alt", " ");
-    //     img.setAttribute("aria-label", name);
-        
-    //     article.appendChild(img);
-
-    //     return (article);
-    // }
-
-    // ??? initialement seulement return {name, picture, getCardDOM} - ici tentative d'accéder à l'objet entier de partout ???
-    return photographerModel = { name, id, city, country, tagline, price, linkTo, picture, getCardDOM }
+    // ??? initialement seulement return {name, picture, getCardDOM}
+    return photographerModel = { name, id, city, country, tagline, price, getCardDOM }
 }
 
 
