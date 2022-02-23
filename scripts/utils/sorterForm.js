@@ -21,7 +21,7 @@ class SorterForm {
 
             const SortedMedias = sortedData.data 
 
-            SortedMediass.forEach(Media => {
+            SortedMedias.forEach(Media => {
                 const Template = new MediaCard(Media)
                 this.$mediasWrapper.appendChild(Template.createMediaCard())
             })
