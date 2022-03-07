@@ -7,21 +7,18 @@ const photographerIdUrl = searchParams.get("id");
 async function displayData() {
 
     const { photographers, media } = await getPhotographers();
+    console.log(media);
     
     const selectedPhotographers = photographers.filter(
         (photographer) => photographer.id == photographerIdUrl
         );
     const selectedPhotographer = selectedPhotographers[0];
-
-        console.log(media);
-        console.log(media[2]);
-        
     const photographerModel = photographerFactory(selectedPhotographer);
     const CardDOM = photographerModel.getCardDOM();
-
+    
     const photographersSection = document.querySelector(".photograph-header");
     photographersSection.appendChild(CardDOM);
-
+    
     const link = document.querySelector("article > a");
     link.remove();
     
@@ -33,26 +30,37 @@ async function displayData() {
     
     const h2 = document.createElement( "h2" );
     h2.textContent = selectedPhotographer.name;
-
-    const article = document.querySelector("article");
-        article.appendChild(img);
-        article.appendChild(h2);  
-    };
-
-    // const Template = new MediaCard(media.media[2], this.likesCount);
-
-    //     this.$wrapper.appendChild(
-    //         Template.createMediaCard()
-    //     );
     
-    // const mediaSample = media.forEach(item => {}); 
-    // media.forEach(media => {
-    //     const Template = new MediaCard(media, this.likesCount);
+    const article = document.querySelector("article");
+    article.appendChild(img);
+    article.appendChild(h2);  
+    
+    const mediaList = media.filter(
+        (media) => media.photographerId == photographerIdUrl
+        );
 
-    //     this.$mediasWrapper.appendChild(
-    //         Template.createMediaCard()
-    //     )
+    // const mediaSample = mediaList.forEach(element => {
+    //     new MediaCard(selectedPhotographer, element, element.likes)
     // });
+    
+    // // const Template = new MediaCard(selectedPhotographer, mediaSample, 72);
+    // console.log(mediaSample);
+    
+    // const mediasSection = document.querySelector(".medias-wrapper");
+    //     mediasSection.appendChild(
+    //             mediaSample.createMediaCard()
+    //         );
+        
+    // };
+    // const mediaSample = media.forEach(item => {}); 
+    mediaList.forEach(element => {
+        const Template = new MediaCard(selectedPhotographer, element, element.likes);
+
+        this.wrapper.appendChild(
+            Template.createMediaCard()
+        )
+    });
+};
 
 displayData();
 

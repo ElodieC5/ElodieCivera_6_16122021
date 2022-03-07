@@ -101,6 +101,19 @@ top: 137px;
     cursor: pointer;
 }
 
+.likes-btn {
+    align-items: center;
+    bottom: 5px;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    padding: 4px;
+    position: absolute;
+    right: 55px;
+    width: 30px;
+}
+
 #contact_modal {
     display: none;
 }
