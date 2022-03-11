@@ -7,7 +7,7 @@ const photographerIdUrl = searchParams.get("id");
 async function displayData() {
 
     const { photographers, media } = await getPhotographers();
-    console.log(media);
+    // console.log(media);
     
     const selectedPhotographers = photographers.filter(
         (photographer) => photographer.id == photographerIdUrl
@@ -34,14 +34,19 @@ async function displayData() {
     const article = document.querySelector("article");
     article.appendChild(img);
     article.appendChild(h2);  
+
+    const mediaWrapper = document.querySelector(".medias-wrapper");
     
     const mediaList = media.filter(
         (media) => media.photographerId == photographerIdUrl
         );
 
-    // const mediaSample = mediaList.forEach(element => {
-    //     new MediaCard(selectedPhotographer, element, element.likes)
-    // });
+    const mediaSample = mediaList.forEach(element => {
+        const template = new MediaCard(selectedPhotographer, element, element.likes).createMediaCard()
+
+        // console.log(template);
+        mediaWrapper.appendChild(template)
+    });
     
     // // const Template = new MediaCard(selectedPhotographer, mediaSample, 72);
     // console.log(mediaSample);
@@ -53,13 +58,11 @@ async function displayData() {
         
     // };
     // const mediaSample = media.forEach(item => {}); 
-    mediaList.forEach(element => {
-        const Template = new MediaCard(selectedPhotographer, element, element.likes);
+    // mediaList.forEach(element => {
+    //     const Template = new MediaCard(selectedPhotographer, element, element.likes);
 
-        this.wrapper.appendChild(
-            Template.createMediaCard()
-        )
-    });
+    //     )
+    // });
 };
 
 displayData();

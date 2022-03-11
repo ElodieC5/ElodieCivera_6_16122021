@@ -3,38 +3,37 @@ class MediaCard {
     constructor(selectedPhotographer, mediaSample, likesCount) {
         this.selectedPhotographer = selectedPhotographer
         this._mediaSample = mediaSample
-        console.log(this._mediaSample);
+        // console.log(this._mediaSample);
         this.likesCount = likesCount
 
         this.wrapper = document.createElement('div')
         this.wrapper.classList.add('media-card-wrapper')
     }
 
-    get mediaSample() {
-        return this._mediaSample
-    }
+    // get mediaSample() {
+    //     return this._mediaSample
+    // }
 
-    handleLikesButton() {
-        const that = this
+    // handleLikesButton() {
+    //     const that = this;
         
-        this.wrapper
-            .querySelector('.likes-btn')
-            .addEventListener('click', function() {
-                if (this.classList.contains('liked')) {
-                    this.classList.remove('liked')
-                    that.likesCount.fire('DEC')
-                } else {
-                    this.classList.add('liked')
-                    that.likesCount.fire('INC')
-                }
-            })
-    }
+    //     this.wrapper
+    //         .querySelector('.likes-btn')
+    //         .addEventListener('click', function() {
+    //             if (this.classList.contains('liked')) {
+    //                 this.classList.remove('liked')
+    //                 that.likesCount.fire('DEC')
+    //             } else {
+    //                 this.classList.add('liked')
+    //                 that.likesCount.fire('INC')
+    //             }
+    //         })
+    // }
 
     createMediaCard() {
         let namePortrait = this.selectedPhotographer.name;
         namePortrait = namePortrait.split(" ");
-        // console.log(namePortrait[0]);
-
+        console.log(namePortrait[0],this._mediaSample.image);
         const mediaCard = `
             <div class="media-thumbnail center">
                 <img
@@ -51,11 +50,11 @@ class MediaCard {
                     </div>
                     <h3 class="fs-16 center">${this._mediaSample.title}</h3>
                     `
-                    // src="${this._mediaSample.image}"
                     
         this.wrapper.innerHTML = mediaCard;
-        this.handleLikesButton();
+        // this.handleLikesButton();
 
         return this.wrapper;
+
     }
 };
