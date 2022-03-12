@@ -1,17 +1,22 @@
 
-class MediaCard {
-    constructor(selectedPhotographer, mediaSample, likesCount) {
-        this.selectedPhotographer = selectedPhotographer
-        this._mediaSample = mediaSample
-        // console.log(this._mediaSample);
-        this.likesCount = likesCount
+//      Factory to build media template
+//      Create media cards inside the selected photographer page
+//     -------------------------------------------------------------------------------------------
 
-        this.wrapper = document.createElement('div')
-        this.wrapper.classList.add('media-card-wrapper')
+
+// constructor pattern for the media cards
+class MediaCard {
+
+    constructor(selectedPhotographer, mediaSample, likesCount) {
+        this.selectedPhotographer = selectedPhotographer;
+        this.mediaSample = mediaSample;
+        this.likesCount = likesCount;
+        this.wrapper = document.createElement('div');
+        this.wrapper.classList.add('media-card-wrapper');
     }
 
     // get mediaSample() {
-    //     return this._mediaSample
+    //     return this.mediaSample;
     // }
 
     // handleLikesButton() {
@@ -30,15 +35,18 @@ class MediaCard {
     //         })
     // }
 
+    // create media cards using literal template
     createMediaCard() {
         let namePortrait = this.selectedPhotographer.name;
         namePortrait = namePortrait.split(" ");
-        console.log(namePortrait[0],this._mediaSample.image);
+
+console.log(namePortrait[0],this.mediaSample.image);
+
         const mediaCard = `
             <div class="media-thumbnail center">
                 <img
-                    alt="${this._mediaSample.title}"
-                    src="assets/photographers/${namePortrait[0]}/${this._mediaSample.image}"
+                    alt="${this.mediaSample.title}"
+                    src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}"
                     />
                     <div class="likes-btn">
                     <svg class="heart" viewBox="0 0 241.59736 220.05746">
@@ -48,12 +56,13 @@ class MediaCard {
                     </svg>
                     </div>
                     </div>
-                    <h3 class="fs-16 center">${this._mediaSample.title}</h3>
+                    <h3 class="fs-16 center">${this.mediaSample.title}</h3>
                     `
                     
         this.wrapper.innerHTML = mediaCard;
         // this.handleLikesButton();
 
+        // the method returns the media card as a DOM div
         return this.wrapper;
 
     }

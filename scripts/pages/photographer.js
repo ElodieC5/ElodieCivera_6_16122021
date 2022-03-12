@@ -1,30 +1,43 @@
 
-//
+//     Script for the photographer page (dedicated to a selected photographer)
+//     Display the photographer card and all of his/her work
+//     -------------------------------------------------------------------------------------------
 
+
+// collect the ID attached to the selected photographer
 const searchParams = new URLSearchParams(window.location.search);
 const photographerIdUrl = searchParams.get("id");
 
 async function displayData() {
 
+    // call the fetch function & destructure the photographers & medias
     const { photographers, media } = await getPhotographers();
-    // console.log(media);
     
+    // collect the selected photographer and his/her works through filter on ID
     const selectedPhotographers = photographers.filter(
         (photographer) => photographer.id == photographerIdUrl
         );
     const selectedPhotographer = selectedPhotographers[0];
+
+    const mediaList = media.filter(
+        (media) => media.photographerId == photographerIdUrl
+        );
+
+    // calling the photographerFactory (and its getCardDOM method) for the selected photographer
     const photographerModel = photographerFactory(selectedPhotographer);
     const CardDOM = photographerModel.getCardDOM();
     
+    // display card inside the DOM "photograph-header" for selected photographer
     const photographersSection = document.querySelector(".photograph-header");
     photographersSection.appendChild(CardDOM);
     
     const link = document.querySelector("article > a");
     link.remove();
     
-    const picture = `assets/photographers/Photographers ID Photos/${selectedPhotographer.portrait}`;
+    /* const picture = `assets/photographers/Photographers ID Photos/${selectedPhotographer.portrait}`; */
+
     const img = document.createElement( "img" );
-    img.setAttribute("src", picture);
+    img.setAttribute("src", `assets/photographers/Photographers ID Photos/${selectedPhotographer.portrait}`);
     img.setAttribute("alt", " ");
     img.setAttribute("aria-label", selectedPhotographer.name);
     
@@ -35,63 +48,16 @@ async function displayData() {
     article.appendChild(img);
     article.appendChild(h2);  
 
+    // display media cards inside the DOM "medias-wrapper"
     const mediaWrapper = document.querySelector(".medias-wrapper");
     
-    const mediaList = media.filter(
-        (media) => media.photographerId == photographerIdUrl
-        );
 
     const mediaSample = mediaList.forEach(element => {
         const template = new MediaCard(selectedPhotographer, element, element.likes).createMediaCard()
 
-        // console.log(template);
         mediaWrapper.appendChild(template)
     });
     
-    // // const Template = new MediaCard(selectedPhotographer, mediaSample, 72);
-    // console.log(mediaSample);
-    
-    // const mediasSection = document.querySelector(".medias-wrapper");
-    //     mediasSection.appendChild(
-    //             mediaSample.createMediaCard()
-    //         );
-        
-    // };
-    // const mediaSample = media.forEach(item => {}); 
-    // mediaList.forEach(element => {
-    //     const Template = new MediaCard(selectedPhotographer, element, element.likes);
-
-    //     )
-    // });
 };
 
 displayData();
-
-// ======================= factory initiale ===============================================
-// (1) Collect json data with fetch
-// async function getPhotographers() {
-//     return fetch("./data/photographers.json")
-//     .then(response => response.json())
-//     .then(data => data)
-// };
-
-// (2) Create photographer_section into index page
-// async function displayData(photographers) {
-//     const photographersSection = document.querySelector(".photographer_section");
-
-//     // Create individual card for each photographer
-//     photographers.forEach((photographer) => {
-//         const photographerModel = photographerFactory(photographer);
-//         const CardDOM = photographerModel.getCardDOM();
-//         photographersSection.appendChild(CardDOM);
-//     });
-// };
-
-// (3) Once json data are available (1), the photographer_section is initialized (2)
-// async function init() {
-//     const { photographers } = await getPhotographers();
-//     displayData(photographers);
-// };
-
-// Call to initialization (3)
-// init()
