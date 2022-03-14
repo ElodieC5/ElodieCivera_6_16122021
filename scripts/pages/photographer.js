@@ -22,15 +22,16 @@ async function displayData() {
     const mediaList = media.filter(
         (media) => media.photographerId == photographerIdUrl
         );
-    const mediaType = mediaList.forEach(media => {
-        let type;
-        if (media.hasOwnProperty.call("image")) {
-        type = "image";
-        } else if (media.hasOwnProperty.call("video")) {
-        type = "video";
-        }
-        return type;
-    });
+    // const mediaType = mediaList.forEach(media => {
+    
+    //     if (media.hasOwnProperty("image")) {
+    //     mediaType = "image";
+    //     } else if (media.hasOwnProperty("video")) {
+    //     mediaType = "video";
+    //     }
+    //     return mediaType;
+    //     console.log(mediaType);
+    // });
 
     // calling the photographerFactory (and its getCardDOM method) for the selected photographer
     const photographerModel = photographerFactory(selectedPhotographer);
@@ -62,8 +63,8 @@ async function displayData() {
     
 
     const mediaSample = mediaList.forEach(element => {
-        const template = new MediaCard(selectedPhotographer, element, element.likes, mediaType).createMediaCard()
-console.log(element.likes);
+        const template = new MediaCard(selectedPhotographer, element).test();
+        console.log(template);
         mediaWrapper.appendChild(template)
     });
     
