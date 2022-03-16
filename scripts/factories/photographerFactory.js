@@ -3,10 +3,10 @@
 //      -------------------------------------------------------------------------------------------
 
 
-function photographerFactory(params) {
+function photographerFactory(photographer) {
 
     // destructure photographer's data to assign variables to properties
-    const { name, id, city, country, tagline, price, portrait} = params;
+    const { name, id, city, country, tagline, price, portrait} = photographer;
 
     // create photographer cards using literal template
     function getCardDOM() {

@@ -10,97 +10,67 @@ class MediaCard {
     constructor(selectedPhotographer, mediaSample) {
         this.selectedPhotographer = selectedPhotographer;
         this.mediaSample = mediaSample;
-        // this.mediaType = mediaType;
-        // if (media.hasOwnProperty("image")) {
-    //     mediaType = "image";
-    //     } else if (media.hasOwnProperty("video")) {
-    //     mediaType = "video";
-    //     }
-    //     return mediaType;
-    //     console.log(mediaType);
-    // });
-        // this.wrapper = document.createElement('div');
-        // this.wrapper.classList.add('media-card-wrapper');
-        
     }
-
-test() {
-    if (this.mediaSample.image) {
-        console.log(this.mediaSample.image);
-        return this.createMediaCardImg();
-    }else{
-        console.log("no");
-        // return this.createMediaCardVid();
-        // return this.createMediaCardImg();
-    }
- }
     
-    // get mediaSample() {
-    //     return this.mediaSample;
-    // }
+    createMediaCard() {
+    let namePortrait = this.selectedPhotographer.name;
+    namePortrait = namePortrait.split(" ");
 
-    // handleLikesButton() {
-    //     const that = this;
-        
-    //     this.wrapper
-    //         .querySelector('.likes-btn')
-    //         .addEventListener('click', function() {
-    //             if (this.classList.contains('liked')) {
-    //                 this.classList.remove('liked')
-    //                 that.likesCount.fire('DEC')
-    //             } else {
-    //                 this.classList.add('liked')
-    //                 that.likesCount.fire('INC')
-    //             }
-    //         })
-    // }
+    const mediaImg = `<img alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}" />`;
+    const mediaVid = `<video alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
 
-    // create media cards using literal template
-    createMediaCardImg() {
-        let namePortrait = this.selectedPhotographer.name;
-        namePortrait = namePortrait.split(" ");
-
-console.log(namePortrait[0],this.mediaSample.image);
-
-        const mediaCard = `
+    return `
         <div class="media-thumbnail">
-            <img alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}" />
+            ${this.mediaSample.image ? mediaImg : mediaVid}
             <h3>${this.mediaSample.title}</h3>
             <div class="likes-btn" aria-label="likes">
+                ${this.mediaSample.likes}
                 <img class="likes-btn" src="assets/icons/heart.svg" />
             </div>
         </div>
-                `
-                    
-        // this.wrapper.innerHTML = mediaCard;
-        // this.handleLikesButton();
+        `;
+    };
+}
+ // create media cards using literal template
 
-        // the method returns the media card as a DOM div
-        // return this.wrapper;
-        return mediaCard;
-    }
 
-    createMediaCardVid() {
-        let namePortrait = this.selectedPhotographer.name;
-        namePortrait = namePortrait.split(" ");
+// this.wrapper.innerHTML = mediaCard;
+// this.handleLikesButton();
 
-console.log(namePortrait[0],this.mediaSample.image);
+// the method returns the media card as a DOM div
+// return this.wrapper;
 
-        const mediaCard = `
-        <div class="media-thumbnail">
-            <video alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>
-            <h3>${this.mediaSample.title}</h3>
-            <div class="likes-btn" aria-label="likes">
-            <img class="likes-btn" src="assets/icons/heart.svg" />
-            </div>
-        </div>
-                `
-                    
-        // this.wrapper.innerHTML = mediaCard;
-        // this.handleLikesButton();
+// get mediaSample() {
+    //     return this.mediaSample;
+    // }
+    
+    // handleLikesButton() {
+        //     const that = this;
+        
+        //     this.wrapper
+        //         .querySelector('.likes-btn')
+        //         .addEventListener('click', function() {
+            //             if (this.classList.contains('liked')) {
+                //                 this.classList.remove('liked')
+                //                 that.likesCount.fire('DEC')
+                //             } else {
+                    //                 this.classList.add('liked')
+                    //                 that.likesCount.fire('INC')
+                    //             }
+                    //         })
+                    // }
 
-        // the method returns the media card as a DOM div
-        // return this.wrapper;
-        return mediaCard;
-    }
-};
+
+                    // let a = 2;
+
+
+                    // if (a === 2) {
+                    //     console.log('bonjour');
+                    // } else {
+                        
+                    //     console.log('bonsoir');
+                    // }
+                            
+                    // //ternaire
+                    // //condition          true        :  false  
+                    // a == 2 ?  console.log('bonjour') : console.log('bonsoir');
