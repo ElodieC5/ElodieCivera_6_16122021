@@ -59,18 +59,3 @@ class MediaCard {
                     //             }
                     //         })
                     // }
-
-
-                    // let a = 2;
-
-
-                    // if (a === 2) {
-                    //     console.log('bonjour');
-                    // } else {
-                        
-                    //     console.log('bonsoir');
-                    // }
-                            
-                    // //ternaire
-                    // //condition          true        :  false  
-                    // a == 2 ?  console.log('bonjour') : console.log('bonsoir');

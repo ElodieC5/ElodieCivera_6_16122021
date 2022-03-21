@@ -14,35 +14,25 @@ function closeModal() {
 }
 
 
-// // DOM Elements & RegEx
-// // -----------------------------------------------------
-// // modalbg: modal bckg, modalBtn: 2 btn to launch
-// // formData: div with inputs, span: (x) to close
-
-// const modalbg = document.querySelector(".bground");
-// const modalBtn = document.querySelectorAll(".modal-btn");
-// const formDataList = document.querySelectorAll(".formData");
-// const close = document.querySelector(".close");
-// const userInputs = document.querySelectorAll("input");
-// const locationElts = document.querySelectorAll("input[name='location']");
-// const submit = document.querySelector(".btn-submit");
-
-// const regChar = /^[A-Za-z]{2,25}$/;
-// const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
-// const regDate = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/;
-// const regNumber = /^\d+$/;
-// let participation;
-
-
 // // FORM validation
 // // -----------------------------------------------------
 // // when form is sumitted (or while inputs are filled in), each user's input is checked & customized error message eventually pop-up
+
+
+// const modalBtn = document.querySelector(".photograph-header .contact_button");
+// const form = document.querySelectorAll("form div");
+// const close = document.querySelector("img");
+// const userInputs = document.querySelectorAll("input");
+// const submit = document.querySelector("form div > .contact-button");
+
+// const regChar = /^[A-Za-z]{2,25}$/;
+// const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
 
 // submit.addEventListener("click", checkInput);
 
 // userInputs.forEach(input => input.addEventListener('keyup', checkInput));
 
-// // value of the "data-error" attribute is the error message, the error class prevents the final validation
+// // // value of the "data-error" attribute is the error message, the error class prevents the final validation
 
 // function setErrorMessage(input, message) {
 //   input.parentElement.setAttribute("data-error", message);
@@ -50,7 +40,7 @@ function closeModal() {
 //   input.parentElement.classList.add("error");
 // }
 
-// // no message when everything is fine, remove the "error" class in case it has been corrected afterwards
+// // // no message when everything is fine, remove the "error" class in case it has been corrected afterwards
 
 // function setSuccessMessage(input) {
 //   input.parentElement.removeAttribute("data-error");
@@ -58,19 +48,19 @@ function closeModal() {
 //   input.parentElement.classList.remove("error"); 
 // }
 
-// // prevent submitting while inputs are validated
+// // // prevent submitting while inputs are validated
 
 // function checkInput(e) {
 //   e.preventDefault();
 
-// // each input is switched as per its name and then its value is checked
+// // // each input is switched as per its name and then its value is checked
 
 //   userInputs.forEach(input => {
 //     let inputName = input.name;
 //     let inputValue = input.value;
   
-// // if value does not match validation requirement then call function setErrorMessage
-// // else call setSuccessMessage
+// // // if value does not match validation requirement then call function setErrorMessage
+// // // else call setSuccessMessage
 
 //     switch (inputName) {
 
@@ -98,56 +88,20 @@ function closeModal() {
 //     }
 //     break;
 
-//   case "birthdate" :
-//     if (!regDate.test(inputValue)) {
-//       setErrorMessage(input, "Veuillez vérifier votre date de naissance");
+//   case "message" :
+//     if (!regChar.test(inputValue)) {
+//       setErrorMessage(input, "Veuillez entrer au moins 2 lettres");
 //     } else {
 //         setSuccessMessage(input);
 //     }
 //     break;
 
-//   case "quantity" :
-//     let a = Number(inputValue);
-//     participation = a;
-//     if (!regNumber.test(a) || Number(a) > 99 || inputValue ==="") {
-//       setErrorMessage(input, "Combien de fois avez-vous participé ?");
-//     } else {
-//         setSuccessMessage(input);
-//     }
-//     break;
+//   }
 
-//   case "location" :
-//     let checkboxChecked = 0;
-//     locationElts.forEach(locationElt => {
-//       if (locationElt.checked) {
-//         checkboxChecked++;
-//       }
-//     });
-
-//     if (checkboxChecked > 0 && participation > 0) {
-//       setSuccessMessage(input);
-//     } else if (checkboxChecked === 0 && participation === 0) {
-//       setSuccessMessage(input);
-//     } else if (checkboxChecked > 0 && participation === 0) {
-//       setErrorMessage(input, "Si c'est votre 1ère participation, ne cochez rien");
-//     } else {
-//           setErrorMessage(input, "Veuillez préciser dans quelle ville");
-//     }
-//     break;
-
-//     case "cgu" :
-//       if (input.checked) {
-//         setSuccessMessage(input);
-//       } else {
-//         setErrorMessage(input, "Veuillez accepter nos conditions d'utilisation");
-//       }
-//     }
-//   });
-
-// // final loop checking no uncorrected error remaining and final form validation
+// // // final loop checking no uncorrected error remaining and final form validation
 
 // let ilYaUneErreur = 0;
-//   formDataList.forEach(formData => {
+//   form.forEach(formData => {
 //     if (formData.classList.contains("error")) {
 //       ilYaUneErreur++;
 //     }
@@ -155,13 +109,14 @@ function closeModal() {
 
 // if (ilYaUneErreur === 0) {
 
-//   const validation = document.querySelector(".content");
+//   const validation = document.querySelector(".modal");
 //   const finalMessage = document.createElement("div");
 //   const finalButton = document.createElement("button");
 
 //   validation.classList.add("final");
-//   finalMessage.textContent = 'Votre inscription est bien enregistrée. Merci et à bientôt pour le "GameOn" !';
+//   finalMessage.textContent = 'Votre message a bien été envoyé';
 //   finalButton.textContent="Fermer";
+
 //   finalButton.classList.add("btn-signup");
 
 //   validation.appendChild(finalMessage);
@@ -169,6 +124,6 @@ function closeModal() {
 
 //   finalButton.addEventListener("click", closeModal);
 
-//   };
+// };
+// })
 // }
-  
