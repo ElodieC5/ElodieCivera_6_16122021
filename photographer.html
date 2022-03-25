@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - Photographe </title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - Photographe </title>
+</head>
+
+<body>
+  <!-- <div class="container-all"> -->
     <header>
-      <a href="index.html" class="container"> 
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" aria-label="Retour à la page d'accueil"/>
+      <a href="index.html" class="container">
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"
+          aria-label="Retour à la page d'accueil" />
       </a>
     </header>
     <main id="main">
@@ -20,30 +24,30 @@
       <div class="forms-wrapper">
         <div class="filter-form-wrapper"></div>
         <div class="sorter-form-wrapper"></div>
-    </div>
-    <div class="medias-wrapper"></div>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-          <h2>Contactez-moi</h2>
-          <h2 class="photographer-contact"></h2>
-        </header>
-				<form>
-					<div>
-						<label for="first">Prénom</label>
-						<input class="text-control" id="first" name="firstName"/>
-						<label for="last">Nom</label>
-						<input class="text-control" id="last" name="lastName"/>
-						<label for="email">Email</label>
-						<input class="text-control" id="email" name="email"/>
-						<label for="message">Votre message</label>
-						<input class="text-control" id="message" name="message"/>
-					</div>
-          <button class="contact_button" type="submit">Envoyer</button>
-				</form>
-			</div>
-		</div>
+      </div>
+      <div class="medias-wrapper"></div>
+      <div id="contact_modal">
+        <div class="modal">
+          <header>
+            <img src="assets/icons/close.svg" onclick="closeModal()" />
+            <h2>Contactez-moi</h2>
+            <h2 class="photographer-contact"></h2>
+          </header>
+          <form>
+            <div>
+              <label for="first">Prénom</label>
+              <input class="text-control" id="first" name="firstName" />
+              <label for="last">Nom</label>
+              <input class="text-control" id="last" name="lastName" />
+              <label for="email">Email</label>
+              <input class="text-control" id="email" name="email" />
+              <label for="message">Votre message</label>
+              <input class="text-control" id="message" name="message" />
+            </div>
+            <button class="contact_button" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
     </main>
     <!-- ??? Modification ordre des scripts ??? -->
     <script src="scripts/pages/service.js"></script>
@@ -52,5 +56,8 @@
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/utils/sorterForm.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+  <!-- </div> -->
+</body>
+
 </html>
+

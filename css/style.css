@@ -3,7 +3,7 @@
 body {
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
-    margin: 0;
+    /* margin: 0; */
 }
 
 
@@ -13,11 +13,12 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    margin: 0 5%;
 }
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    /* margin-right: 100px; */
 }
 
 a {
@@ -25,9 +26,10 @@ a {
     text-align: center;
 }
 
-.container {
+/* .container {
     margin-left: 100px;
-}
+} */
+
 .logo {
     height: 50px;
 }
