@@ -30,4 +30,20 @@ class MediaCard {
     `;
 	}
 
+    	// handleLikesButton() {
+
+	//         this.querySelector('.likes-btn')
+	//             .addEventListener('click', function() {
+	//                     if (this.classList.contains('liked')) {
+	//                             this.classList.remove('liked')
+	//                             this.likesCount.fire('DEC')
+	//                         } else {
+	//                                 this.classList.add('liked')
+	//                                 that.likesCount.fire('INC')
+	//                             }
+	//                         })
+	//                 };
+
+	// handleLikesButton()
+
 }

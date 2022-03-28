@@ -54,33 +54,15 @@ async function displayData() {
     });
 
 	function totalLikes() {
-        // const totalLikesView = document.createElement("span");
 		let nbLikes = 0;
 		mediaList.map((media) => {
 			nbLikes = nbLikes + media.likes;
 		});
 		console.log(nbLikes);
-		pPrice.insertAdjacentHTML("afterbegin", `<span id="totalLikes">${nbLikes} </span>`);
-        pPrice.insertAdjacentHTML("afterbegin","<img id='totalLikes' src='assets/icons/heart.svg'/>");
+		pPrice.insertAdjacentHTML("afterbegin", `<div id="totalLikes">${nbLikes} <img class='totalLikes' src='assets/icons/heartBlack.svg'/></div>`);
     }
 
     totalLikes();
-	// handleLikesButton() {
-
-	//         this.querySelector('.likes-btn')
-	//             .addEventListener('click', function() {
-	//                     if (this.classList.contains('liked')) {
-	//                             this.classList.remove('liked')
-	//                             that.likesCount.fire('DEC')
-	//                         } else {
-	//                                 this.classList.add('liked')
-	//                                 that.likesCount.fire('INC')
-	//                             }
-	//                         })
-	//                 };
-
-	// handleLikesButton()
-
 };
 
 displayData();

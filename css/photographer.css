@@ -97,13 +97,19 @@ body{
 	text-align: right;
 	padding: 29px;
 	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
 }
 
-#totalLikes {
+#totalLikes img {
+	/* display: inline; */
 	height: 21px;
 	width: 21px;
 	margin-left: 3px;
+	position: relative;
+	vertical-align: top ;
 	fill: #000;
+	color: #000;
 }
 .medias-wrapper {
 	display: grid;
