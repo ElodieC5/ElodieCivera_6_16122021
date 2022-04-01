@@ -39,7 +39,7 @@ async function displayData() {
     h2.textContent = selectedPhotographer.name;
 
     const pPrice = document.querySelector( "p.prix" );
-    console.log(pPrice);
+
 
     const article = document.querySelector( "article" );
     article.appendChild(img);
@@ -58,7 +58,6 @@ async function displayData() {
 		mediaList.map((media) => {
 			nbLikes = nbLikes + media.likes;
 		});
-		console.log(nbLikes);
 		pPrice.insertAdjacentHTML("afterbegin", `<div id="totalLikes">${nbLikes} <img class='totalLikes' src='assets/icons/heartBlack.svg'/></div>`);
     }
 

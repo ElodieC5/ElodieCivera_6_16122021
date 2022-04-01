@@ -18,32 +18,26 @@ class MediaCard {
 
 		return `
         <div class="media-thumbnail">
-        ${this.mediaSample.image ? mediaImg : mediaVid}
-    <h3>${this.mediaSample.title}</h3>
-    <div class="likes-btn" aria-label="likes">
-    ${this.mediaSample.likes}
-    <div class="container-image">
-    <img class="likes-btn" src="assets/icons/heart.svg" />
-    </div>
-    </div>
-    </div>
-    `;
+            ${this.mediaSample.image ? mediaImg : mediaVid}
+            <h3>${this.mediaSample.title}</h3>
+            <div class="likes-btn" aria-label="likes">
+                <div class="container-number">
+                    ${this.mediaSample.likes}
+                </div>
+                <div class="container-image">
+                    <img onclick="handleLikesButton(${this.mediaSample.likes})" class="likes-btn" src="assets/icons/heart.svg" />
+                </div>
+            </div>
+        </div>
+        `;
 	}
 
-    	// handleLikesButton() {
-
-	//         this.querySelector('.likes-btn')
-	//             .addEventListener('click', function() {
-	//                     if (this.classList.contains('liked')) {
-	//                             this.classList.remove('liked')
-	//                             this.likesCount.fire('DEC')
-	//                         } else {
-	//                                 this.classList.add('liked')
-	//                                 that.likesCount.fire('INC')
-	//                             }
-	//                         })
-	//                 };
-
-	// handleLikesButton()
-
 }
+
+function handleLikesButton(likes) {
+    console.log(likes);
+    likes += 1;
+    const nbLikes = document.querySelector(".container-number");
+    nbLikes.textContent = likes;
+    console.log(nbLikes);
+        };
