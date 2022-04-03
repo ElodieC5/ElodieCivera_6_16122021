@@ -49,7 +49,8 @@ async function displayData() {
     const mediaSection = document.querySelector(".medias-wrapper");
 
     mediaList.forEach(media => {
-        const template = new MediaCard(selectedPhotographer, media).createMediaCard();
+        const template = 
+            new MediaCard(selectedPhotographer, media).createMediaCard();
         mediaSection.innerHTML += template;
     });
 
@@ -62,24 +63,9 @@ async function displayData() {
     }
 
     totalLikes();
+
+    // mediaWithLightbox(img);
 };
 
 displayData();
 
-
-// const tab = [1,2,3,4,5,7,8,9];
-
-
-// const tab5 = [];
-// tab.forEach(ch => tab5.push(ch * 5));
-// // console.log(tab5);
-
-// const newTab = tab5.filter(ch => ch > 20);
-// // console.log(newTab);
-
-// // map
-
-
-
-// const result = tab.map(ch => ch * 5).filter(ch => ch > 20)
-// console.log(result);

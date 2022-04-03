@@ -32,6 +32,7 @@ class MediaCard {
         `;
 	}
 
+
 }
 
 function handleLikesButton(likes) {
@@ -41,3 +42,4 @@ function handleLikesButton(likes) {
     nbLikes.textContent = likes;
     console.log(nbLikes);
         };
+
