@@ -66,22 +66,39 @@ document.addEventListener("DOMContentLoaded", () => {
             const image = imageWrapper.querySelector('img');
             const video = imageWrapper.querySelector('video');
             if (image) {
-                console.log(image);
-                $lightbox.innerHTML = '<div class="close-lightbox"></div>' + image.outerHTML;
-                $lightbox.classList.add('show');
+                console.log(image.src);
+                $lightbox.innerHTML = `
+                           <div class="player">
+                             <img src="assets/icons/close.svg" onclick="closeLightbox()" />
+                                 <iframe 
+                                    height="400" 
+                                 width="600" 
+                                src="${image.src}"
+                             ></iframe>
+                            </div>
+                         `;
+						$lightbox.classList.add("show");
             }
             if (video) {
-                $lightbox.innerHTML = '<div class="close-lightbox"></div>' + video.outerHTML;
+                $lightbox.innerHTML = `
+                             <div class="player">
+                             <img src="assets/icons/close.svg" onclick="closeLightbox()" />
+                                 <iframe 
+                                     height="400" 
+                                     width="600" 
+                                     src="${video.src}"
+                                 ></iframe>
+                             </div>
+                         `;
                 $lightbox.classList.add('show');
             }
         }
     });
-
+    
     // Hide Lightbox
 
-    $lightbox.addEventListener('click', (e) => {
-        if (!e.target.hasAttribute('src')) {
-            $lightbox.classList.remove('show');
-        }
-    });
-});
+    function closeLightbox() {
+        const modal = document.getElementById("lightbox_modal");
+        modal.style.display = "none";
+    }
+})

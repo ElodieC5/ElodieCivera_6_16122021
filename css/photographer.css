@@ -181,20 +181,18 @@ body{
 	position: fixed;
 	z-index: 1;
 	top: 0%;
-	height: 700px;
+	height: 500px;
 	width: 100%;
+	margin: 0% 5%;
+	background-color: #E5E5E5;
 }
 
 #lightbox_modal.show{
-	background-color: #E5E5E5;
-	height: 700px;
-	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-content: center;
-	justify-content: center;
-	margin: 0% 5%;
-	object-fit: cover;
+	/* align-content: center;
+	justify-content: center; */
+	/* object-fit: cover; */
 
 }
 
