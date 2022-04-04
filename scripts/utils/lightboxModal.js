@@ -49,3 +49,39 @@
 //             Player.render()
 //         })
 // }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const $mediasWrapper = document.querySelector('.medias-wrapper');
+    const $lightbox = document.getElementById('lightbox_modal');
+    
+    
+    // Show lightbox 
+    
+    $mediasWrapper.addEventListener('click', e => {
+        
+        const imageWrapper = e.target.closest('.media-thumbnail');
+        
+        if (imageWrapper) {
+            const image = imageWrapper.querySelector('img');
+            const video = imageWrapper.querySelector('video');
+            if (image) {
+                console.log(image);
+                $lightbox.innerHTML = '<div class="close-lightbox"></div>' + image.outerHTML;
+                $lightbox.classList.add('show');
+            }
+            if (video) {
+                $lightbox.innerHTML = '<div class="close-lightbox"></div>' + video.outerHTML;
+                $lightbox.classList.add('show');
+            }
+        }
+    });
+
+    // Hide Lightbox
+
+    $lightbox.addEventListener('click', (e) => {
+        if (!e.target.hasAttribute('src')) {
+            $lightbox.classList.remove('show');
+        }
+    });
+});
