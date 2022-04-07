@@ -4,26 +4,34 @@
 //     -------------------------------------------------------------------------------------------
 
 
-// ... collect the ID attached to the selected photographer
+//  collect the ID attached to the selected photographer
+
 const searchParams = new URLSearchParams(window.location.search);
 const photographerIdUrl = Number(searchParams.get("id"));
 
 
 async function displayData() {
 
-    // ... call fetch function & destructure the photographers & medias
+    //  Call fetch function & destructure the photographers & medias
+
     const { photographers, media } = await getPhotographers();
 
-    // ... collect the selected photographer and his/her works through filter on ID & destructure it
+
+    //  Collect the selected photographer and his/her works through filter on ID & destructure it
+
     const [selectedPhotographer] = photographers.filter(photographer => photographer.id === photographerIdUrl);
 
     const mediaList = media.filter(media => media.photographerId === photographerIdUrl);
 
-    // ... calling the photographerFactory (and its getCardDOM method) for the selected photographer
+
+    //  Call the photographerFactory (and its getCardDOM method) for the selected photographer
+
     const photographerModel = photographerFactory(selectedPhotographer);
     const CardDOM = photographerModel.getCardDOM();
 
-    // ... display card inside the DOM "photograph-header" for selected photographer
+
+    //  Display card inside the DOM "photograph-header" for selected photographer
+
     const photographerSection = document.querySelector(".photograph-header");
     photographerSection.appendChild(CardDOM);
 
@@ -45,7 +53,9 @@ async function displayData() {
     article.appendChild(img);
     article.appendChild(h2);
 
-    // ... display media cards inside the DOM "medias-wrapper"
+
+    //  Display media cards inside the DOM "medias-wrapper"
+
     const mediaSection = document.querySelector(".medias-wrapper");
 
     mediaList.forEach(media => {
@@ -64,7 +74,6 @@ async function displayData() {
 
     totalLikes();
 
-    // mediaWithLightbox(img);
 };
 
 displayData();

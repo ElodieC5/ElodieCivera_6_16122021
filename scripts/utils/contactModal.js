@@ -1,3 +1,9 @@
+
+//      Script to display the Contact Modal
+//      -------------------------------------------------------------------------------------------
+
+//  Display Modal is called through onclick on the contact button (see photographer.html)
+
 function displayModal() {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
@@ -8,6 +14,8 @@ function displayModal() {
     
 }
 
+
+//  Close Modal is called through onclick on the "close.svg" (see photographer.html)
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
