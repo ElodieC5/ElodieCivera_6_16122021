@@ -84,7 +84,7 @@ body{
 	width: 376px;
 	height: 89px;
 	position: fixed;
-	z-index: 9;
+	z-index: 5;
 	right: 3%;
 	bottom: 0%;
 	background: #db8876;
@@ -178,33 +178,48 @@ body{
 
 #lightbox_modal{
 	display: none;
-	position: fixed;
-	z-index: 1;
-	top: 0%;
-	height: 500px;
-	width: 100%;
-	margin: 0% 5%;
-	background-color: #E5E5E5;
 }
 
 #lightbox_modal.show{
+	position: fixed;
+	top: 0%;
+	height: 100%;
+	width: 100%;
+	background-color: #E5E5E5;
+	z-index: 6;
 	display: flex;
 	flex-direction: column;
 	/* align-content: center;
-	justify-content: center; */
-	/* object-fit: cover; */
+	justify-content: center;
+	object-fit: cover; */
+}
 
+.icons {
+    cursor: pointer;
+    position: relative;
+	z-index: 7;
+    top: 5%;
+	left: 92%;
+	width: 42px;
+	fill: #901c1c;
+}
+
+.lightbox{
+	width: 90%;
+	height: 984px;
+	object-fit: cover;
+	z-index: 9;
 }
 
 #contact_modal {
 	display: none;
 	position: fixed;
-	z-index: 1;
+	z-index: 9;
 	top: 0%;
 	height: 100%;
 	width: 100%;
 	overflow: auto;
-	background-color: rgba(196, 196, 196, 0.4);
+	background-color: #E5E5E5;
 }
 
 .modal {
