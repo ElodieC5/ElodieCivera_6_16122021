@@ -189,15 +189,12 @@ body{
 	z-index: 6;
 	display: flex;
 	flex-direction: column;
-	/* align-content: center;
-	justify-content: center;
-	object-fit: cover; */
 }
 
 .icons {
     cursor: pointer;
     position: relative;
-	z-index: 7;
+	z-index: 9;
     top: 5%;
 	left: 92%;
 	width: 42px;

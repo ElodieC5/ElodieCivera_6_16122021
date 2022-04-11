@@ -16,16 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (image) {
 				$lightbox.innerHTML = `
                 <div class="icons">
-                <img src="assets/icons/close.svg" onclick="closeLightbox()" />
+                    <img src="assets/icons/close.svg" onclick="closeLightbox()" />
                 </div>
-                <div class="lightbox"
-                                src="${image.src}"
-                                h2="${image.alt}"
-                             >
-                            </div>
-                         `;
+                <div class="lightbox">
+                    <img src="${image.src}" />
+                    <h2>${image.alt}</h2>
+                </div>`;
 				$lightbox.classList.add("show");
-                console.log(image.alt);
 			}
 			if (video) {
 				$lightbox.innerHTML = `
