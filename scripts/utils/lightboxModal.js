@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (image) {
 				$lightbox.innerHTML = `
                 <div class="icons">
-                    <img src="assets/icons/close.svg" onclick="closeLightbox()" />
+                    <img class="icons" src="assets/icons/close.svg" onclick="closeLightbox()" />
                 </div>
                 <div class="lightbox">
                     <img src="${image.src}" />
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (video) {
 				$lightbox.innerHTML = `
                              <div class="lightbox">
-                             <img src="assets/icons/close.svg" onclick="closeLightbox()" />
+                             <img class="icons" src="assets/icons/close.svg" onclick="closeLightbox()" />
                                  <iframe 
                                      height="400" 
                                      width="600" 
