@@ -159,11 +159,7 @@ body{
 	margin-left: 3px;
 }
 
-.contact_button {
-	position: absolute;
-	left: 43.15%;
-	right: 43.15%;
-	top: 137px;
+button {
 	font-size: 20px;
 	font-weight: bold;
 	color: white;
@@ -174,6 +170,34 @@ body{
 	background-color: #901c1c;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.contact_button {
+	position: absolute;
+	left: 43.15%;
+	right: 43.15%;
+	top: 137px;
+}
+
+.sorter-wrapper {
+	margin-left: 5%;
+}
+
+.sorter-wrapper svg {
+	fill: red;
+}
+
+label {
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 23px;
+	text-align: left;
+	padding-right: 12px;
+}
+
+#options-order {
+	display: flex;
+	flex-direction: column;
 }
 
 #lightbox_modal{
