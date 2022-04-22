@@ -2,12 +2,16 @@
 //      Create media cards inside the selected photographer page
 //     -------------------------------------------------------------------------------------------
 
+
 // constructor pattern for the media cards
+
 class MediaCard {
 	constructor(selectedPhotographer, mediaSample) {
 		this.selectedPhotographer = selectedPhotographer;
 		this.mediaSample = mediaSample;
 	}
+
+// this below function is called through "template" = any new instance of MediaCard
 
 	createMediaCard() {
 		let namePortrait = this.selectedPhotographer.name;
@@ -18,40 +22,52 @@ class MediaCard {
 
 		return `
         <div class="media-thumbnail">
-            ${this.mediaSample.image ? mediaImg : mediaVid}
-            <h3>${this.mediaSample.title}</h3>
-            <div class="likes-btn" aria-label="likes">
-                <div class="container-number" data-idmedia="${this.mediaSample.id}">
-                    ${this.mediaSample.likes}
-                </div>
-                <div class="container-image">
-                    <img data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}" onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
-                </div>
-            </div>
+        ${this.mediaSample.image ? mediaImg : mediaVid}
+        <h3>${this.mediaSample.title}</h3>
+        <div class="likes-btn" aria-label="likes">
+          <div class="container-number" data-idmedia="${this.mediaSample.id}">
+            ${this.mediaSample.likes}
+          </div>
+          <div class="container-image">
+            <img data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
+              onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
+          </div>
         </div>
+      </div>
         `;
 	}
-
-
 }
 
+// this function is called here above while creating the "container-image"
+
 function handleLikesButton(media) {
-    const idMedia = media.dataset.idmedia;
-    const containerNumber = document.querySelector( `.container-number[data-idmedia="${idMedia}"]` );
 
-    // recuperer le nombrer de like
-    let nbLikes = parseInt(containerNumber.textContent, 10);
-    nbLikes += 1;                                                                           
-    containerNumber.textContent = nbLikes;
+    // select the unique media cliked thanks to its id then the containers to be inc/dec
 
-// pour chercher la precence d'un class classlist.contains
+	const idMedia = media.dataset.idmedia;
+    const totalLikes = document.querySelector(".total");
+	const containerNumber = document.querySelector(
+		`.container-number[data-idmedia="${idMedia}"]`
+	);
+    
+	// collect the likes number, convert & inc/dec locally/totally when cliked
+    
+	let nbLikes = parseInt(containerNumber.textContent, 10);
+    let sumLikes = parseInt(totalLikes.textContent, 10)
 
-    // tu vas verifier si il y a une class active sur le container-number
-    // si oui {
-        //je decremente
-        //je supprime la class active
-//    }
-//else{ j'incremente
-//       j'ajoute la class active}
-        };
+	if (containerNumber.classList.contains("alreadyLiked")) {
+		nbLikes -= 1;
+		sumLikes -= 1;
+		containerNumber.textContent = nbLikes;
+		totalLikes.textContent = sumLikes;
+		containerNumber.classList.remove("alreadyLiked");
+	} else {
+        nbLikes += 1;
+		sumLikes += 1;
+		containerNumber.textContent = nbLikes;
+		totalLikes.textContent = sumLikes;
+		containerNumber.classList.add("alreadyLiked");
+	};
+
+};
 

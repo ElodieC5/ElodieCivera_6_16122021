@@ -65,12 +65,22 @@ async function displayData() {
     });
 
 	function totalLikes() {
+
 		let nbLikes = 0;
+
 		mediaList.map((media) => {
 			nbLikes = nbLikes + media.likes;
 		});
-		pPrice.insertAdjacentHTML("afterbegin", `<div id="totalLikes">${nbLikes} <img class='totalLikes' src='assets/icons/heartBlack.svg'/></div>`);
-    }
+
+		pPrice.insertAdjacentHTML(
+			"afterbegin",
+			// `<div id="totalLikes">${nbLikes} <img class='totalLikes' src='assets/icons/heartBlack.svg'/></div>`
+            `<div id="totalLikes">
+            <div class="total">${nbLikes} </div>
+            <img class='totalLikes' src='assets/icons/heartBlack.svg' />
+          </div>`
+		);
+	}
 
     totalLikes();
 
