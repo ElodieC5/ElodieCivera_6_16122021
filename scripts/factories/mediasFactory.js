@@ -21,11 +21,11 @@ class MediaCard {
             ${this.mediaSample.image ? mediaImg : mediaVid}
             <h3>${this.mediaSample.title}</h3>
             <div class="likes-btn" aria-label="likes">
-                <div class="container-number">
+                <div class="container-number" data-idmedia="${this.mediaSample.id}">
                     ${this.mediaSample.likes}
                 </div>
                 <div class="container-image">
-                    <img onclick="handleLikesButton(${this.mediaSample.likes})" class="likes-btn" src="assets/icons/heart.svg" />
+                    <img data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}" onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
                 </div>
             </div>
         </div>
@@ -35,11 +35,23 @@ class MediaCard {
 
 }
 
-function handleLikesButton(likes) {
-    console.log(likes);
-    likes += 1;
-    const nbLikes = document.querySelector(".container-number");
-    nbLikes.textContent = likes;
-    console.log(nbLikes);
+function handleLikesButton(media) {
+    const idMedia = media.dataset.idmedia;
+    const containerNumber = document.querySelector( `.container-number[data-idmedia="${idMedia}"]` );
+
+    // recuperer le nombrer de like
+    let nbLikes = parseInt(containerNumber.textContent, 10);
+    nbLikes += 1;                                                                           
+    containerNumber.textContent = nbLikes;
+
+// pour chercher la precence d'un class classlist.contains
+
+    // tu vas verifier si il y a une class active sur le container-number
+    // si oui {
+        //je decremente
+        //je supprime la class active
+//    }
+//else{ j'incremente
+//       j'ajoute la class active}
         };
 
