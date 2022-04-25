@@ -14,13 +14,12 @@ function toggleMenu() {
 
 // Close the dropdown menu if the user clicks outside of it
 
-// window.onclick = function(event) {
+window.onclick = function(event) {
+    if (event.target != dropdownHidden && event.target != dropdownVisible) {
 
-// if (!event.target.matches("#options-order")) {
-//         console.log("on veut fermer")
-//         dropdownVisible.classList.remove("show");
-//         dropdownHidden.classList.add("show");
-//         console.log("on a fermé");
-//         }
-//     }
+        dropdownHidden.classList.toggle("show");
+        dropdownVisible.classList.toggle("show");
+        console.log("on a fermé");
+        }
+    }
 

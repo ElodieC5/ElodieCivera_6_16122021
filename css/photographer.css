@@ -160,8 +160,8 @@ button {
 .contact_button {
 	position: absolute;
 	left: 43.15%;
-	right: 43.15%;
-	top: 137px;
+	/* right: 43.15%; */
+	top: 160px;
 }
 
 .sorter-wrapper {
