@@ -17,9 +17,8 @@ function toggleMenu() {
 window.onclick = function(event) {
     if (event.target != dropdownHidden && event.target != dropdownVisible) {
 
-        dropdownHidden.classList.toggle("show");
-        dropdownVisible.classList.toggle("show");
-        console.log("on a fermé");
+        dropdownHidden.classList.remove("show");
+        dropdownVisible.classList.remove("show");
         }
     }
 
