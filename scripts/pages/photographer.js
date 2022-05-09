@@ -70,11 +70,10 @@ async function displayData() {
         
         let nbLikes = 0;
         
-		mediaList.map((media) => {
+		mediaList.map(media => {
             nbLikes = nbLikes + media.likes;
-            mediaLikes.push(nbLikes);
 		});
-        console.log(mediaLikes);
+
         
 		pPrice.insertAdjacentHTML(
             "afterbegin",
@@ -91,32 +90,59 @@ async function displayData() {
         
         function sortData(sortParams) {
                 
+            const movies = [
+                {title: 'The Godfather', rating: -5, release: '24 March 1972'},
+                {title: 'The Godfather: Part II', rating: 9.0, release: '20 December 1972'},
+                {title: 'The Shawshank Redemption', rating: 9.3, release: '14 October 1994'},
+            ];
+
+            const mediaThumbnails = [...document.querySelectorAll(".media-thumbnail")];
+            
+            console.log(mediaThumbnails);
+            
+            mediaThumbnails.map(media => {
+                // console.log(media.querySelector("h3").innerText);
+                // console.log(media.querySelector(".container-number").innerText);
+                // console.log(media.querySelector("h3").getAttribute("data-date"));
+                });
+
+                
+
             switch (sortParams) {
 
                 case "popularity" :
-                console.log(mediaLikes);
                 
-                mediaLikes.sort(function(a, b) {
-                    return a - b;   
+                    mediaThumbnails.sort(function(a, b) {
+                    return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
                 });
-                console.log(mediaLikes);
+                mediaThumbnails.map(x => console.log(x.querySelector(".container-number").innerText));
                 break;
-
-                case "date" : mediaList.sort(function(a, b) {
-                    return a.nbLikes - b.nbLikes;
+                
+                case "date" : movies.sort(function(a, b) {
+                    var dateA = new Date(a.release), dateB = new Date(b.release);
+                    return dateB - dateA;
                 });
+                console.log(movies);
                 break;
-
-                case "title" : mediaList.sort(function(a, b) {
-                    return a.nbLikes - b.nbLikes;
+                
+                case "title" : movies.sort(function(a, b) {
+                    var titleA = a.title.toLowerCase(), titleB = b.title.toLowerCase();
+                    if (titleA < titleB) return -1;
+                    if (titleA > titleB) return 1;
+                    return 0;
                 });
+                console.log(movies);
                 break;
             default: console.log("something's wrong");
                 break;
         }
     }
     sortData("popularity");
+    // sortData("date");
+    // sortData("title");
     
 };
 
 displayData();
+
+

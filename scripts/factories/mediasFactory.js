@@ -23,7 +23,7 @@ class MediaCard {
 		return `
         <div class="media-thumbnail">
         ${this.mediaSample.image ? mediaImg : mediaVid}
-        <h3>${this.mediaSample.title}</h3>
+        <h3 data-date="${this.mediaSample.date}">${this.mediaSample.title}</h3>
         <div class="likes-btn" aria-label="likes">
           <div class="container-number" data-idmedia="${this.mediaSample.id}">
             ${this.mediaSample.likes}
