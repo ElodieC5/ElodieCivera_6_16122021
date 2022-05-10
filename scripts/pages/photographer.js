@@ -89,51 +89,82 @@ async function displayData() {
         totalLikes();
         
         function sortData(sortParams) {
-                
-            const movies = [
-                {title: 'The Godfather', rating: -5, release: '24 March 1972'},
-                {title: 'The Godfather: Part II', rating: 9.0, release: '20 December 1972'},
-                {title: 'The Shawshank Redemption', rating: 9.3, release: '14 October 1994'},
-            ];
 
             const mediaThumbnails = [...document.querySelectorAll(".media-thumbnail")];
-            
-            console.log(mediaThumbnails);
-            
-            mediaThumbnails.map(media => {
-                // console.log(media.querySelector("h3").innerText);
-                // console.log(media.querySelector(".container-number").innerText);
-                // console.log(media.querySelector("h3").getAttribute("data-date"));
-                });
+            let sortResults;
 
-                
-
+            // mediaThumbnails.map(media => {
+            //     console.log(media.querySelector(".container-number").innerText);
+            //     console.log(media.querySelector("h3").getAttribute("data-date"));
+            //     console.log(media.querySelector("h3").innerText);
+            // });
+            
+            
+            
             switch (sortParams) {
-
-                case "popularity" :
                 
+                case "popularity" :
+                    
+        console.log(mediaList);
                     mediaThumbnails.sort(function(a, b) {
                     return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
                 });
-                mediaThumbnails.map(x => console.log(x.querySelector(".container-number").innerText));
+
+                    mediaThumbnails.forEach(media => {
+        console.log(media.querySelector(".container-number").getAttribute("data-idmedia"));
+                });
+
+// console.log(mediaList[0].id);
+// console.log(mediaThumbnails[0].querySelector(".container-number").getAttribute("data-idmedia"));
+
+                    mediaList.sort(function (a, b) {
+                        
+                        for (let i = 0; i < mediaList.length; i++) {
+                            if (a.id == mediaThumbnails[i].querySelector(".container-number").getAttribute("data-idmedia")) {
+                                console.log(mediaThumbnails.indexOf(mediaThumbnails[i]));
+                                mediaList.indexOf(a) == mediaThumbnails.indexOf(mediaThumbnails[i])
+                            }
+                        
+                        
+                        }
+                    })
+        console.log(mediaList);
+                // mediaList.forEach(media => {
+                //     let i = 0;
+                //     if (media.id == mediaThumbnails[i].querySelector(".container-number").getAttribute("data-idmedia")) {
+                //         console.log(mediaList = mediaThumbnails.indexOf(i));
+                //     } else {
+                //         console.log("something wrong");
+                //     }
+                // })
+                
+        console.log(mediaThumbnails);
+
+                // mediaThumbnails.map(x => console.log(x.querySelector(".container-number").innerText));
+        
+                break;
+                    
+                case "date" : 
+                
+                    mediaThumbnails.sort(function(a, b) {
+                        let dateA = new Date(a.querySelector("h3").getAttribute("data-date")), dateB = new Date(b.querySelector("h3").getAttribute("data-date"));
+                        return dateA - dateB;
+                    });
+                    mediaThumbnails.map(x => console.log(x.querySelector("h3").getAttribute("data-date")));
                 break;
                 
-                case "date" : movies.sort(function(a, b) {
-                    var dateA = new Date(a.release), dateB = new Date(b.release);
-                    return dateB - dateA;
-                });
-                console.log(movies);
+                case "title" :
+                    
+                    mediaThumbnails.sort(function(a, b) {
+                        let titleA = a.querySelector("h3").innerText.toLowerCase(), titleB = b.querySelector("h3").innerText.toLowerCase();
+                        if (titleA < titleB) return -1;
+                        if (titleA > titleB) return 1;
+                        return 0;
+                    });
+                    mediaThumbnails.map(x => console.log(x.querySelector("h3").innerText));
                 break;
-                
-                case "title" : movies.sort(function(a, b) {
-                    var titleA = a.title.toLowerCase(), titleB = b.title.toLowerCase();
-                    if (titleA < titleB) return -1;
-                    if (titleA > titleB) return 1;
-                    return 0;
-                });
-                console.log(movies);
-                break;
-            default: console.log("something's wrong");
+
+                default: console.log("something's wrong");
                 break;
         }
     }
