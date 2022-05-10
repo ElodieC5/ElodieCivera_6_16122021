@@ -4,13 +4,31 @@
 
 //  Display Modal is called through...
 
-const dropdownHidden = document.getElementById("current-order")
-const dropdownVisible = document.getElementById("options-order")
+const dropdownHidden = document.getElementById("current-order");
+const dropdownVisible = document.getElementById("options-order");
+const byPopularity = dropdownVisible.querySelector("button[data-order='popularity']");
+const byDate = dropdownVisible.querySelector("button[data-order='date']");
+const byTitle = dropdownVisible.querySelector("button[data-order='title']");
 
 function toggleMenu() {
     dropdownHidden.classList.toggle("show");
     dropdownVisible.classList.toggle("show");
 };
+
+// Sorting data
+
+// dropdownVisible.onclick = function(event) {
+//     if (event.target = byDate) {
+//     displayData().sortData("date");
+// } else if (event.target = byTitle) {
+//     displayData().sortData("title");    
+// } else if (event.target = byPopularity) {
+//     displayData().sortData("popularity");
+// } else {
+//     console.log("what's happened ?");
+// }
+// };
+
 
 // Close the dropdown menu if the user clicks outside of it
 
