@@ -10,6 +10,7 @@ const searchParams = new URLSearchParams(window.location.search);
 const photographerIdUrl = Number(searchParams.get("id"));
 let mediaList = [];
 let mediaLikes = [];
+let mediaSection = "";
 
 
 async function displayData() {
@@ -50,7 +51,7 @@ async function displayData() {
     
     //  Display media cards inside the DOM "medias-wrapper"
     //  -------------------------------------------------------
-    const mediaSection = document.querySelector(".medias-wrapper");
+    mediaSection = document.querySelector(".medias-wrapper");
     
     mediaList.forEach(media => {
         const template = 
@@ -78,9 +79,15 @@ async function displayData() {
         
     totalLikes();
 
+
+};
+
+// displayData();
+
     //  Sort the media cards inside the DOM "medias-wrapper" (by "Popularity" by default)
     //  -------------------------------------------------------
-    function sortData(sortParams) {
+    async function sortData(sortParams) {
+        await displayData();
         const mediaThumbnails = [...document.querySelectorAll(".media-thumbnail")];
         mediaSection.innerHTML= "";
 
@@ -117,13 +124,11 @@ async function displayData() {
             mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
             break;
         }
+        // return {sortData};
     }
 // sortData("popularity");
-// sortData("date");
+sortData("date");
 // sortData("title");  
-sortData();  
-return {sortData};
-};
+// sortData();  
 
-displayData();
 
