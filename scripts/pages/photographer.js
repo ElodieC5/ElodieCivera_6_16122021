@@ -88,60 +88,16 @@ async function displayData() {
         
         totalLikes();
         
-        function sortData(sortParams) {
+    function sortData(sortParams) {
 
-            const mediaThumbnails = [...document.querySelectorAll(".media-thumbnail")];
-            let sortResults;
+        const mediaThumbnails = [...document.querySelectorAll(".media-thumbnail")];
 
-            // mediaThumbnails.map(media => {
-            //     console.log(media.querySelector(".container-number").innerText);
-            //     console.log(media.querySelector("h3").getAttribute("data-date"));
-            //     console.log(media.querySelector("h3").innerText);
-            // });
-            
-            
-            
-            switch (sortParams) {
-                
-                case "popularity" :
-                    
-        console.log(mediaList);
-                    mediaThumbnails.sort(function(a, b) {
-                    return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
-                });
-
-                    mediaThumbnails.forEach(media => {
-        console.log(media.querySelector(".container-number").getAttribute("data-idmedia"));
-                });
-
-// console.log(mediaList[0].id);
-// console.log(mediaThumbnails[0].querySelector(".container-number").getAttribute("data-idmedia"));
-
-                    mediaList.sort(function (a, b) {
-                        
-                        for (let i = 0; i < mediaList.length; i++) {
-                            if (a.id == mediaThumbnails[i].querySelector(".container-number").getAttribute("data-idmedia")) {
-                                console.log(mediaThumbnails.indexOf(mediaThumbnails[i]));
-                                mediaList.indexOf(a) == mediaThumbnails.indexOf(mediaThumbnails[i])
-                            }
-                        
-                        
-                        }
-                    })
-        console.log(mediaList);
-                // mediaList.forEach(media => {
-                //     let i = 0;
-                //     if (media.id == mediaThumbnails[i].querySelector(".container-number").getAttribute("data-idmedia")) {
-                //         console.log(mediaList = mediaThumbnails.indexOf(i));
-                //     } else {
-                //         console.log("something wrong");
-                //     }
-                // })
-                
-        console.log(mediaThumbnails);
-
-                // mediaThumbnails.map(x => console.log(x.querySelector(".container-number").innerText));
-        
+        mediaSection.innerHTML= "";
+        switch (sortParams) {        
+        case "popularity" :
+            mediaThumbnails.sort(function(a, b) {
+                return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
+            });
                 break;
                     
                 case "date" : 
@@ -150,7 +106,6 @@ async function displayData() {
                         let dateA = new Date(a.querySelector("h3").getAttribute("data-date")), dateB = new Date(b.querySelector("h3").getAttribute("data-date"));
                         return dateA - dateB;
                     });
-                    mediaThumbnails.map(x => console.log(x.querySelector("h3").getAttribute("data-date")));
                 break;
                 
                 case "title" :
@@ -161,19 +116,15 @@ async function displayData() {
                         if (titleA > titleB) return 1;
                         return 0;
                     });
-                    mediaThumbnails.map(x => console.log(x.querySelector("h3").innerText));
-                break;
-
-                default: console.log("something's wrong");
-                break;
+                    mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
         }
     }
-    sortData("popularity");
+    // sortData("popularity");
     // sortData("date");
-    // sortData("title");
+    // sortData("title");  
     
+    return {sortData};
 };
 
 displayData();
-
 

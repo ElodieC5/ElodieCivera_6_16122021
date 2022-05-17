@@ -17,17 +17,17 @@ function toggleMenu() {
 
 // Sorting data
 
-// dropdownVisible.onclick = function(event) {
-//     if (event.target = byDate) {
-//     displayData().sortData("date");
-// } else if (event.target = byTitle) {
-//     displayData().sortData("title");    
-// } else if (event.target = byPopularity) {
-//     displayData().sortData("popularity");
-// } else {
-//     console.log("what's happened ?");
-// }
-// };
+dropdownVisible.addEventListener("click", function(event) {
+    if (event.target = byDate) {
+    displayData();
+} else if (event.target = byTitle) {
+    displayData();    
+} else if (event.target = byPopularity) {
+    displayData().sortData("popularity");
+} else {
+    console.log("what's happened ?");
+}
+});
 
 
 // Close the dropdown menu if the user clicks outside of it
