@@ -85,34 +85,43 @@ async function displayData() {
         mediaSection.innerHTML= "";
 
         switch (sortParams) {   
-
+            
             case "popularity" :
                 mediaThumbnails.sort(function(a, b) {
                     return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
                 });
+                mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
             break;
-                    
+                
             case "date" : 
                 mediaThumbnails.sort(function(a, b) {
                     let dateA = new Date(a.querySelector("h3").getAttribute("data-date")), dateB = new Date(b.querySelector("h3").getAttribute("data-date"));
                     return dateA - dateB;
                 });
+                mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
             break;
                 
             case "title" :
                 mediaThumbnails.sort(function(a, b) {
-                    let titleA = a.querySelector("h3").innerText.toLowerCase(), titleB = b.querySelector("h3").innerText.toLowerCase();
-                    if (titleA < titleB) return -1;
-                    if (titleA > titleB) return 1;
-                    return 0;
+                        let titleA = a.querySelector("h3").innerText.toLowerCase(), titleB = b.querySelector("h3").innerText.toLowerCase();
+                        if (titleA < titleB) return -1;
+                        if (titleA > titleB) return 1;
+                        return 0;
                 });
+                mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
+            break;
 
-        mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
+            default : mediaThumbnails.sort(function(a, b) {
+                return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
+            });
+            mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
+            break;
         }
     }
 // sortData("popularity");
 // sortData("date");
 // sortData("title");  
+sortData();  
 return {sortData};
 };
 
