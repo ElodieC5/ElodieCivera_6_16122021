@@ -1,7 +1,7 @@
-
-//      Main script to collect json data
-//      Fetch function is then called in index & photographer pages
-//      -------------------------------------------------------------------------------------------
+//  -------------------------------------------------------
+//  Main script to collect json data
+//  Fetch function is called in index & photographer pages
+//  -------------------------------------------------------
 
 
 async function getPhotographers() {

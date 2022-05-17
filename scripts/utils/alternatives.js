@@ -54,4 +54,4 @@
 // }
 
 //  3rd : Apply this "patch" (the Decorator Pattern i.e. mediaWithLightbox() )
-//  to the new object created through the class MediaCard (see mediasFactory.js)
+//  to the new object created through the class MediaCard (see mediaFactory.js)

@@ -1,9 +1,10 @@
-//      Factory to build media template
-//      Create media cards inside the selected photographer page
-//     -------------------------------------------------------------------------------------------
+//  ------------------------------------------------------- 
+//	Factory to build media template
+//	Create media cards inside the selected photographer page
+//  -------------------------------------------------------
 
 
-// constructor pattern for the media cards
+// Constructor pattern for the media cards
 
 class MediaCard {
 	constructor(selectedPhotographer, mediaSample) {
@@ -11,7 +12,7 @@ class MediaCard {
 		this.mediaSample = mediaSample;
 	}
 
-// this below function is called through "template" = any new instance of MediaCard
+// This function is called through "template" = any new instance of MediaCard
 
 	createMediaCard() {
 		let namePortrait = this.selectedPhotographer.name;
@@ -38,7 +39,7 @@ class MediaCard {
 	}
 }
 
-// this function is called here above while creating the "container-image"
+// This function is called here above while creating the "container-image"
 
 function handleLikesButton(media) {
 
@@ -68,6 +69,5 @@ function handleLikesButton(media) {
 		totalLikes.textContent = sumLikes;
 		containerNumber.classList.add("alreadyLiked");
 	};
-
 };
 

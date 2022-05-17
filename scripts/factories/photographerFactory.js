@@ -1,14 +1,17 @@
-//      Factory to build photographer template
-//      Create photographer cards inside index & photographer pages
-//      -------------------------------------------------------------------------------------------
+//  -------------------------------------------------------
+//  Factory to build photographer template
+//  Create photographer cards inside index & photographer pages
+//  -------------------------------------------------------
 
 
 function photographerFactory(photographer) {
 
     // destructure photographer's data to assign variables to properties
+
     const { name, id, city, country, tagline, price, portrait} = photographer;
 
-    // create photographer cards using literal template
+    // create photographer cards using template literal
+    
     function getCardDOM() {
         
         const img = document.createElement( "img" );
