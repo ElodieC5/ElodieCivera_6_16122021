@@ -5,6 +5,7 @@
 
 
 //  Collect the ID attached to the selected photographer
+//  -------------------------------------------------------
 
 const searchParams = new URLSearchParams(window.location.search);
 const photographerIdUrl = Number(searchParams.get("id"));
@@ -43,7 +44,6 @@ async function displayData() {
     const h2 = document.createElement( "h2" );
     h2.textContent = selectedPhotographer.name;
     
-    const pPrice = document.querySelector( "p.prix" );
     
     const article = document.querySelector( "article" );
     article.appendChild(img);
@@ -59,28 +59,30 @@ async function displayData() {
         mediaSection.innerHTML += template;
     });
     
-    //  Create the "totalLikes" division for the whole page
-    //  -------------------------------------------------------
-	function totalLikes() {
-        let nbLikes = 0;
-        
-		mediaList.map(media => {
-            nbLikes = nbLikes + media.likes;
-		});
-        
-		pPrice.insertAdjacentHTML(
-            "afterbegin",
-            `<div id="totalLikes">
-            <div class="total">${nbLikes} </div>
-            <img class='totalLikes' src='assets/icons/heartBlack.svg' />
-            </div>`
-            );
-        }
-        
-    totalLikes();
 };
 
-// displayData();
+//  Create the "totalLikes" division for the whole page
+//  -------------------------------------------------------
+async function totalLikes() {
+    await displayData();
+    const pPrice = document.querySelector( "p.prix" );
+    console.log(pPrice);
+    let nbLikes = 0;
+    
+    mediaList.map(media => {
+        nbLikes = nbLikes + media.likes;
+    });
+    
+    pPrice.insertAdjacentHTML(
+        "afterbegin",
+        `<div id="totalLikes">
+        <div class="total">${nbLikes} </div>
+        <img class='totalLikes' src='assets/icons/heartBlack.svg' />
+        </div>`
+        );
+    }
+    
+totalLikes();
 
 
 

@@ -31,10 +31,9 @@ body{
 	position: absolute;
 	left: 3%;
 	top: 0%;
-
 	height: 83px;
 	color: #d3573c;
-	font-size: 64px;
+	font-size: 60px;
 	font-weight: 400;
 	margin: 1em 0 0;
 }
@@ -64,7 +63,7 @@ body{
 }
 
 .photograph-header article p.prix {
-	width: 376px;
+	/* width: 376px; */
 	height: 89px;
 	position: fixed;
 	z-index: 5;
@@ -83,11 +82,12 @@ body{
 
 #totalLikes {
 	display: flex;
+	width: 110px;
 }
 #totalLikes img {
 	height: 22px;
 	width: 24px;
-	margin-left: 6px;
+	margin-left: 7px;
 	position: relative;
 	vertical-align: top ;
 }
