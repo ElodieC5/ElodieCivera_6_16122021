@@ -66,7 +66,6 @@ async function displayData() {
 async function totalLikes() {
     await displayData();
     const pPrice = document.querySelector( "p.prix" );
-    console.log(pPrice);
     let nbLikes = 0;
     
     mediaList.map(media => {

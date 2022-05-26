@@ -47,7 +47,7 @@
         }
     }
 
-sortData();  
+// sortData();  
 
 //  Display sorter menu through...
 //  -------------------------------------------------------
@@ -94,10 +94,9 @@ dropdownVisible.addEventListener("click", function(event) {
 // Close the dropdown menu if the user clicks outside of it
 //  -------------------------------------------------------
 
-window.onclick = function(event) {
+document.addEventListener('click', (event) => {
     if (event.target != dropdownHidden && event.target != dropdownVisible) {
         dropdownHidden.classList.remove("show");
         dropdownVisible.classList.remove("show");
     }
-}
-
+});
