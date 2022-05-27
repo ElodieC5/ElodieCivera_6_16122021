@@ -268,7 +268,7 @@ label {
     align-items: flex-start;
 }
 
-.modal header img {
+.close {
     cursor: pointer;
     position: relative;
     left: 95%;
