@@ -254,7 +254,7 @@ label {
 /*------------------*/
 
 #contact_modal {
-	/* display: none; */
+	display: none;
 	position: fixed;
 	z-index: 9;
 	top: 0%;

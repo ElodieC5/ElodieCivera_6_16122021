@@ -7,22 +7,20 @@ const modalBtn = document.querySelector(".photograph-header .contact_button");
 const form = document.querySelectorAll("form div");
 const close = document.querySelector(".close");
 const userInputs = document.querySelectorAll("input");
-const submit = document.querySelector(".submit");
+const submit = document.getElementById('submit');
 
 const regChar = /^[A-Za-z]{2,25}$/;
 const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
 
 modalBtn.addEventListener("click", displayModal);
 close.addEventListener("click", closeModal);
-userInputs.forEach(input => input.addEventListener('focus', checkInput));
-// submit.addEventListener("click", checkInput);
+submit.addEventListener("click", checkInput);
 
 //  Display Modal is called through...
 function displayModal() {
     const whichPhotographer = document.querySelector(".photographer-contact");
     const id = document.querySelector(".photograph-header article > h2");
     whichPhotographer.textContent = id.textContent;
-    
     modal.style.display = "block";
 };
 
@@ -56,6 +54,8 @@ function setSuccessMessage(input) {
 // prevent submitting while inputs are validated
 
 function checkInput(e) {
+	let i = 0;
+    // console.log("je suis là");
 	e.preventDefault();
 
 	// each input is switched as per its name and then its value is checked
@@ -73,6 +73,7 @@ function checkInput(e) {
 					setErrorMessage(input, "Veuillez entrer au moins 2 lettres");
 				} else {
 					setSuccessMessage(input);
+					i = i+1;
 				}
 				break;
 
@@ -81,6 +82,8 @@ function checkInput(e) {
 					setErrorMessage(input, "Veuillez entrer au moins 2 lettres");
 				} else {
 					setSuccessMessage(input);
+					i = i+1;
+
 				}
 				break;
 
@@ -89,6 +92,8 @@ function checkInput(e) {
 					setErrorMessage(input, "Veuillez vérifier votre adresse e-mail");
 				} else {
 					setSuccessMessage(input);
+					i = i+1;
+
 				}
 				break;
 
@@ -97,33 +102,14 @@ function checkInput(e) {
 					setErrorMessage(input, "Veuillez entrer au moins 2 lettres");
 				} else {
 					setSuccessMessage(input);
+					i = i+1;
 				}
 				break;
 		};
-
-		// // final loop checking no uncorrected error remaining and final form validation
-		let ilYaUneErreur = 0;
-		form.forEach((div) => {
-			if (div.classList.contains("error")) {
-				ilYaUneErreur++;
-			}
-		});
-
-		if (ilYaUneErreur === 0) {
-			submit.focus();
-			console.log(input.value);
-			// submit.addEventListener("click", console.log(input.value));
-			// submit.addEventListener("click", submitForm);
-			// function submitForm() {
-			// let results = Array.from(userInputs);
-			// results.map((input) => {
-			// console.log(input.value)
-			// });
-			//     console.log(userInputs);
-			//     userInputs.reset()
-			//     closeModal()
-			//     formData.reset();
-			// };
+		if(i === 4) {
+			closeModal();
+			console.log([...userInputs].map(input => input.value));
+            document.getElementById("form").reset();
 		};
 	});
 };
