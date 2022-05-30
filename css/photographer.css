@@ -268,7 +268,7 @@ label {
 	border-radius: 5px;
 	background-color: #db8876;
 	height: 820px;
-	width: 50%;
+	width: 60%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -280,6 +280,7 @@ label {
 .modal header {
     flex-direction: column;
     align-items: flex-start;
+	margin: 0;
 }
 
 .close {
@@ -302,6 +303,7 @@ label {
     right: 0%;
     top: 0%;
     bottom: 0%;
+	margin-top: 15px;
 }
 
 form {

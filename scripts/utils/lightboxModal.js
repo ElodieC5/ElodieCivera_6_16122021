@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// 		if (image) {
 	// 			$lightbox.innerHTML = `
     //             <div class="icons">
-    //                 <img class="icons" src="assets/icons/close.svg" onclick="closeLightbox()" />
+    //                 <img class="icons" src="assets/icons/closeBlack.svg" onclick="closeLightbox()" />
     //             </div>
     //             <div class="lightbox">
     //                 <img src="${image.src}" />
