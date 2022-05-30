@@ -3,6 +3,22 @@ body{
 	margin: auto;
 }
 
+button {
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	padding: 11px;
+	width: 170px;
+	height: 70px;
+	border: none;
+	background-color: #901c1c;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/*	HEADER	*/
+/*----------*/
+
 .photograph-header {
 	position: relative;
 	background-color: #fafafa;
@@ -12,9 +28,7 @@ body{
 	border-radius: 5px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	
 }
-
 
 .photograph-header article img {
 	position: absolute;
@@ -62,8 +76,16 @@ body{
 	font-size: 18px;
 }
 
+.contact_button {
+	position: absolute;
+	left: 45%;
+	top: 170px;
+}
+
+/*	LIKES & PRICE	*/
+/*------------------*/
+
 .photograph-header article p.prix {
-	/* width: 376px; */
 	height: 89px;
 	position: fixed;
 	z-index: 5;
@@ -84,6 +106,7 @@ body{
 	display: flex;
 	width: 110px;
 }
+
 #totalLikes img {
 	height: 22px;
 	width: 24px;
@@ -92,6 +115,8 @@ body{
 	vertical-align: top ;
 }
 
+/*	MEDIA CARDS	*/
+/*--------------*/
 
 .medias-wrapper {
 	display: grid;
@@ -144,25 +169,8 @@ body{
 	margin-left: 3px;
 }
 
-button {
-	font-size: 20px;
-	font-weight: bold;
-	color: white;
-	padding: 11px;
-	width: 170px;
-	height: 70px;
-	border: none;
-	background-color: #901c1c;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-.contact_button {
-	position: absolute;
-	left: 43.15%;
-	/* right: 43.15%; */
-	top: 160px;
-}
+/*	SORTER	*/
+/*----------*/
 
 .sorter-wrapper {
 	margin-left: 5%;
@@ -197,6 +205,9 @@ label {
 #options-order.show {
 	visibility: visible;
 }
+
+/*	LIGHTBOX	*/
+/*--------------*/
 
 #lightbox_modal {
 	display: none;
@@ -239,8 +250,11 @@ label {
 	font-weight: 400;
 }
 
+/*	CONTACT MODAL	*/
+/*------------------*/
+
 #contact_modal {
-	display: none;
+	/* display: none; */
 	position: fixed;
 	z-index: 9;
 	top: 0%;
@@ -253,14 +267,14 @@ label {
 .modal {
 	border-radius: 5px;
 	background-color: #db8876;
-	height: 900px;
+	height: 820px;
 	width: 50%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 35px;
 	margin: auto;
-	margin-top: 5%;
+	margin-top: 2%;
 }
 
 .modal header {
@@ -275,12 +289,11 @@ label {
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 56px;
 	font-weight: normal;
     margin: 0 0 0 0;
     position: relative;
     top: -65px;
-
 }
 
 .modal button {
@@ -299,8 +312,10 @@ form {
 }
 
 form label {
-	color: #312e2e;
-	font-size: 36px;
+	/* color: #312e2e; */
+	font-size: 28px;
+	font-weight: 400;
+	line-height: 40px;
 }
 
 form div {
@@ -308,41 +323,43 @@ form div {
 	flex-direction: column;
 	width: 100%;
 	align-items: self-start;
-	margin-bottom: 26px;
+	/* margin-bottom: 26px; */
+	margin: 20px 0;
 }
 
 form input {
 	width: 100%;
-	height: 68px;
+	height: 60px;
 	border: none;
 	border-radius: 5px;
 }
 
 #message {
-	height: 170px;
+	height: 150px;
 }
 
 form div[data-error]::after {
 	content: attr(data-error);
-	font-size: 0.5em;
-	color: #e54858;
+	/* font-size: 0.5em; */
+	/* color: #D3573C; */
 	display: block;
 	margin-top: 7px;
-	margin-bottom: 7px;
+	/* margin-bottom: 7px; */
 	text-align: right;
-	line-height: 0.3;
+	line-height: 0.4;
 	opacity: 0;
 	transition: 0.3s;
 }
 form div[data-error-visible="true"]::after {
 	opacity: 1;
 }
+
 form div[data-error-visible="true"] .text-control {
-	border: 2px solid #e54858;
+	border: 4px solid #901C1C;
 }
 
 input[data-error]::after {
 	content: attr(data-error);
-	font-size: 0.5em;
-	color: red;
+	font-size: 0.7em;
+	color: #901C1C;
 }

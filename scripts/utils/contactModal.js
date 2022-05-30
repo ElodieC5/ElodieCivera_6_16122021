@@ -15,7 +15,7 @@ const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]
 modalBtn.addEventListener("click", displayModal);
 close.addEventListener("click", closeModal);
 userInputs.forEach(input => input.addEventListener('keyup', checkInput));
-submit.addEventListener("click", checkInput);
+// submit.addEventListener("click", checkInput);
 
 //  Display Modal is called through...
 function displayModal() {
@@ -102,7 +102,6 @@ function checkInput(e) {
 		}
 
 		// // final loop checking no uncorrected error remaining and final form validation
-
 		let ilYaUneErreur = 0;
 		form.forEach((formData) => {
 			if (formData.classList.contains("error")) {
@@ -111,10 +110,20 @@ function checkInput(e) {
 		});
 
 		if (ilYaUneErreur === 0) {
-            userInputs.forEach((input) => {
-			console.log(input.value)
-        });
-        // closeModal();
-		}
+			submit.focus();
+			console.log(input.value);
+			// submit.addEventListener("click", console.log(input.value));
+			// submit.addEventListener("click", submitForm);
+			// function submitForm() {
+			// let results = Array.from(userInputs);
+			// results.map((input) => {
+			// console.log(input.value)
+			// });
+			//     console.log(userInputs);
+			//     userInputs.reset()
+			//     closeModal()
+			//     formData.reset();
+			// };
+		};
 	});
-}
+};
