@@ -14,7 +14,7 @@ const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]
 
 modalBtn.addEventListener("click", displayModal);
 close.addEventListener("click", closeModal);
-userInputs.forEach(input => input.addEventListener('keyup', checkInput));
+userInputs.forEach(input => input.addEventListener('focus', checkInput));
 // submit.addEventListener("click", checkInput);
 
 //  Display Modal is called through...
@@ -68,7 +68,7 @@ function checkInput(e) {
 		// else call setSuccessMessage
 
 		switch (inputName) {
-			case "first":
+			case "firstName":
 				if (!regChar.test(inputValue)) {
 					setErrorMessage(input, "Veuillez entrer au moins 2 lettres");
 				} else {
@@ -76,7 +76,7 @@ function checkInput(e) {
 				}
 				break;
 
-			case "last":
+			case "lastName":
 				if (!regChar.test(inputValue)) {
 					setErrorMessage(input, "Veuillez entrer au moins 2 lettres");
 				} else {
@@ -99,12 +99,12 @@ function checkInput(e) {
 					setSuccessMessage(input);
 				}
 				break;
-		}
+		};
 
 		// // final loop checking no uncorrected error remaining and final form validation
 		let ilYaUneErreur = 0;
-		form.forEach((formData) => {
-			if (formData.classList.contains("error")) {
+		form.forEach((div) => {
+			if (div.classList.contains("error")) {
 				ilYaUneErreur++;
 			}
 		});

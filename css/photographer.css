@@ -322,9 +322,7 @@ form div {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	align-items: self-start;
-	/* margin-bottom: 26px; */
-	margin: 20px 0;
+	margin: 5px 0;
 }
 
 form input {
@@ -332,6 +330,8 @@ form input {
 	height: 60px;
 	border: none;
 	border-radius: 5px;
+	padding-left: 10px;
+	font-size: 20px;
 }
 
 #message {
@@ -340,11 +340,8 @@ form input {
 
 form div[data-error]::after {
 	content: attr(data-error);
-	/* font-size: 0.5em; */
-	/* color: #D3573C; */
 	display: block;
-	margin-top: 7px;
-	/* margin-bottom: 7px; */
+	margin-top: 5px;
 	text-align: right;
 	line-height: 0.4;
 	opacity: 0;
@@ -356,10 +353,12 @@ form div[data-error-visible="true"]::after {
 
 form div[data-error-visible="true"] .text-control {
 	border: 4px solid #901C1C;
+	color: #901C1C;
+	font-size: 20px;
 }
 
-input[data-error]::after {
+/* input[data-error]::after {
 	content: attr(data-error);
-	font-size: 0.7em;
-	color: #901C1C;
-}
+	/* font-size: 7em;
+	color: #901C1C; */
+/* } */
