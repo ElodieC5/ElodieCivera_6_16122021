@@ -14,6 +14,7 @@ const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]
 
 modalBtn.addEventListener("click", displayModal);
 close.addEventListener("click", closeModal);
+// userInputs.forEach(input => input.addEventListener('focus', checkInput));
 submit.addEventListener("click", checkInput);
 
 //  Display Modal is called through...
@@ -25,7 +26,7 @@ function displayModal() {
 };
 
 
-//  Close Modal is called through onclick on the "close.svg" (see photographer.html)
+//  Close Modal is also called through onclick on the "close.svg" (see photographer.html)
 function closeModal() {
     modal.style.display = "none";
 }
@@ -55,7 +56,6 @@ function setSuccessMessage(input) {
 
 function checkInput(e) {
 	let i = 0;
-    // console.log("je suis là");
 	e.preventDefault();
 
 	// each input is switched as per its name and then its value is checked
@@ -108,7 +108,12 @@ function checkInput(e) {
 		};
 		if(i === 4) {
 			closeModal();
-			console.log([...userInputs].map(input => input.value));
+			// console.log([...userInputs].map(input => input.value));
+            let results = Array.from(userInputs);
+            results.map((input) => {
+            console.log(input.value)
+            });
+
             document.getElementById("form").reset();
 		};
 	});
