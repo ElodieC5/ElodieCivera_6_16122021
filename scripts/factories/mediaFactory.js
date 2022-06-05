@@ -18,8 +18,8 @@ class MediaCard {
 		let namePortrait = this.selectedPhotographer.name;
 		namePortrait = namePortrait.split(" ");
 
-		const mediaImg = `<img alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}" />`;
-		const mediaVid = `<video alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
+		const mediaImg = `<img class="photo" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}" />`;
+		const mediaVid = `<video class="film" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
 
 		return `
         <div class="media-thumbnail">
@@ -30,7 +30,7 @@ class MediaCard {
             ${this.mediaSample.likes}
           </div>
           <div class="container-image">
-            <img data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
+            <img class="imgHeart" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
               onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
           </div>
         </div>

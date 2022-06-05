@@ -21,6 +21,7 @@ function photographerFactory(photographer) {
         
         const h2 = document.createElement( "h2" );
         h2.textContent = name;
+        h2.classList.add("accueil");
         
         const link = document.createElement( "a");
         link.setAttribute("href", `photographer.html?id=${id}`);

@@ -20,7 +20,7 @@ submit.addEventListener("click", checkInput);
 //  Display Modal is called through...
 function displayModal() {
     const whichPhotographer = document.querySelector(".photographer-contact");
-    const id = document.querySelector(".photograph-header article > h2");
+    const id = document.querySelector(".photograph-header article > h1");
     whichPhotographer.textContent = id.textContent;
     modal.style.display = "block";
 };

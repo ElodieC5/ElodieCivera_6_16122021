@@ -41,13 +41,14 @@ async function displayData() {
     img.setAttribute("alt", " ");
     img.setAttribute("aria-label", selectedPhotographer.name);
     
-    const h2 = document.createElement( "h2" );
-    h2.textContent = selectedPhotographer.name;
+    const h1 = document.createElement( "h1" );
+    h1.textContent = selectedPhotographer.name;
+    h1.classList.add("profil");
     
     
     const article = document.querySelector( "article" );
     article.appendChild(img);
-    article.appendChild(h2);
+    article.appendChild(h1);
     
     //  Display media cards inside the DOM "medias-wrapper"
     //  -------------------------------------------------------
