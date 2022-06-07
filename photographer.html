@@ -44,19 +44,19 @@
         <form id="form">
           <div class="formData">
             <label for="first">Prénom</label>
-            <input class="text-control" id="first" name="firstName" />
+            <input class="text-control" id="first" name="firstName" minlength="2" maxlength="25" placeholder="Entre 2 et 25 caractères" type="text"/>
           </div>
           <div class="formData">
             <label for="last">Nom</label>
-            <input class="text-control" id="last" name="lastName" />
+            <input class="text-control" id="last" name="lastName" minlength="2" maxlength="25" placeholder="Entre 2 et 25 caractères" type="text"/>
           </div>
           <div class="formData">
             <label for="email">Email</label>
-            <input class="text-control" id="email" name="email" />
+            <input class="text-control" id="email" name="email" placeholder="Caractères sans accent" type="email"/>
           </div>
           <div class="formData">
             <label for="message">Votre message</label>
-            <input class="text-control" id="message" name="message" />
+            <input class="text-control" id="message" name="message" maxlength="300" placeholder="300 caractères maximum" type="text" />
           </div>
           <button id="submit" class="contact_button" type="submit">Envoyer</button>
         </form>
