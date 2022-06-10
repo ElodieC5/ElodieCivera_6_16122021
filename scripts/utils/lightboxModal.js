@@ -1,23 +1,24 @@
+//  -------------------------------------------------------
 //      Script to display the lightbox
-//      -------------------------------------------------------------------------------------------
+//  -------------------------------------------------------
 
 const $mediasWrapper = document.querySelector(".medias-wrapper");
 const $lightbox = document.getElementById("lightbox_modal");
 
 //  Show lightbox
+//  -------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", () => {
-
+	
 	$mediasWrapper.addEventListener("click", (e) => {
-		const thumbnails = [...document.querySelectorAll(".media-thumbnail")];
-		console.log(thumbnails);
 
+		const thumbnails = [...document.querySelectorAll(".media-thumbnail")];
 		const imageWrapper = e.target.closest(".media-thumbnail");
 		let index = thumbnails.indexOf(imageWrapper);
-		console.log(index);
 
 		function showLightbox(imageWrapper) {
 			
+			// check if user clicked either picture or movie through the media's wrapper
 			if (imageWrapper) {
 				const image = imageWrapper.querySelector(".photo");
 				const video = imageWrapper.querySelector(".film");
@@ -55,58 +56,82 @@ document.addEventListener("DOMContentLoaded", () => {
 					$lightbox.classList.add("show");
 				};
 			};
-		};
-		showLightbox(imageWrapper);
-
-		
-			// Listen to "click" on next & previous
-			document.querySelector(".next").addEventListener("click", function() {
+			
+			function nextElt(params) {
+				console.log('aeaaea');
 				index++;
-				console.log(index);
-
 				if (index === thumbnails.length) {
 					index = 0;
 				}
 				showLightbox(thumbnails[index]);
-			});
-			document.querySelector(".previous").addEventListener("click", function() {
+			}
+
+			function previousElt(params) {
 				index--;
 				if (index === -1) {
 					index = thumbnails.length - 1;
 				}
 				showLightbox(thumbnails[index]);
-			});
-		
-		
-			// Listen to "keyup" on next & previous
-			document.querySelector(".next").addEventListener("keyup", function(e) {
-				if (e.key === "Enter" || e.key === "ArrowRight") {
-					// console.log("Selection suivante");
-					index++;
-					if (index === thumbnails.length) {
-						index = 0;
+			}
+			
+			[...document.querySelectorAll('.next')].map(elt =>{
+				elt.addEventListener("click", function() {
+				nextElt();
+				});
+				document.addEventListener("keyup", function() {
+					// rajouter condition pour quel cle keyup
+					// document.addEventListener("keyup", function() {
+					//     console.log("hello");;
+					// });
+					console.log(e.keyCode);
+					if (e.key === "Enter" || e.key === "ArrowRight") {
+
+						nextElt();
 					}
-					showLightbox(thumbnails[index]);
-		
-				}
+				});
 			});
-		
-			document.querySelector(".previous").addEventListener("keyup", function(e) {
-				if (e.key === "Enter" || e.key === "ArrowLeft") {
-					// console.log("Selection précedente");
-					index--;
-					if (index === -1) {
-						index = thumbnails.length - 1;
-					}
-					showLightbox(thumbnails[index]);
-				}
+			
+
+			[...document.querySelectorAll('.previous')].map(elt =>{
+				elt.addEventListener("click", function() {
+					previousElt();
+				});
 			});
+		};
+
+		
+		showLightbox(imageWrapper);
+		
+			// // Listen to "keyup" on next & previous
+			// document.querySelector(".next").addEventListener("keyup", function(e) {
+			// 	if (e.key === "Enter" || e.key === "ArrowRight") {
+			// 		// console.log("Selection suivante");
+			// 		index++;
+			// 		if (index === thumbnails.length) {
+			// 			index = 0;
+			// 		}
+			// 		showLightbox(thumbnails[index]);
+		
+			// 	}
+			// });
+		
+			// document.querySelector(".previous").addEventListener("keyup", function(e) {
+			// 	if (e.key === "Enter" || e.key === "ArrowLeft") {
+			// 		// console.log("Selection précedente");
+			// 		index--;
+			// 		if (index === -1) {
+			// 			index = thumbnails.length - 1;
+			// 		}
+			// 		showLightbox(thumbnails[index]);
+			// 	}
+			// });
 	});
 });
 
 
 
-// Hide Lightbox (function called through onclick on the "close.svg")
+// Hide Lightbox
+//  -------------------------------------------------------
 
 function closeLightbox() {
     $lightbox.classList.remove("show");
