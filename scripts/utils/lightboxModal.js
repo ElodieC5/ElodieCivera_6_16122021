@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			};
 			
 			function nextElt(params) {
-				console.log('aeaaea');
 				index++;
 				if (index === thumbnails.length) {
 					index = 0;
