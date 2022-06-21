@@ -186,7 +186,7 @@ button:hover {
 /*----------*/
 
 .sorter-wrapper {
-	margin-left: 5%;
+	margin-left: 2%;
 }
 
 label {
@@ -199,24 +199,61 @@ label {
 
 #current-order {
 	margin-bottom: 30px;
+	text-align: left;
 }
 
 #current-order.show {
 	visibility: hidden;
 }
 
+.icons {
+
+}
+
+#down {
+	visibility: visible;
+	color: #FFFFFF;
+	position: relative;
+	top: 3px;
+	left: 280px;
+	cursor: pointer;
+  }
+
+#down.show {
+	visibility: hidden;
+}
+
+#up {
+	visibility: hidden;
+  }
+
+#up.show {
+	visibility: visible;
+	color: #FFFFFF;
+	position: relative;
+	top: 3px;
+	left: 250px;
+	cursor: pointer;
+}
+
 #options-order {
 	display: flex;
 	flex-direction: column;
 	visibility: hidden;
-	margin-left: 90px;
+	margin-left: 120px;
 	position: absolute;
-	top: 500px;
+	top: 490px;
+	left: 40px;
 	z-index: 9;
 }
 
 #options-order.show {
 	visibility: visible;
+}
+
+#options-order button {
+	text-align: left;
+	border-bottom: 2px solid #FFFFFF;
 }
 
 /*	LIGHTBOX	*/

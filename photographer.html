@@ -21,12 +21,14 @@
       <button class="contact_button">Contactez-moi</button>
     </div>
     <div class="sorter-wrapper">
-      <img class="icons down" src="assets/icons/arrowDown.svg"/>
-      <img class="icons up" src="assets/icons/arrowUp.svg"/>
+      <img id="down" class="icons" src="assets/icons/arrowDown.svg"/> 
+      <img id="up" class="icons" src="assets/icons/arrowUp.svg"/>
       <label for="current-order">Trier par</label>
-      <button id="current-order" onclick="toggleMenu()" >Popularité</button>
+      <button id="current-order"  >Popularité
+      </button>
       <div id="options-order">
-        <button data-order="popularity">Popularité</button>
+        <button data-order="popularity">Popularité
+        </button>
         <button data-order="date">Date</button>
         <button data-order="title">Titre</button>
       </div>

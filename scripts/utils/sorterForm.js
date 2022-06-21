@@ -54,6 +54,8 @@
 
 const dropdownHidden = document.getElementById("current-order");
 const dropdownVisible = document.getElementById("options-order");
+const iconUp = document.getElementById("up")
+const iconDown = document.getElementById("down")
 const byPopularity = dropdownVisible.querySelector("button[data-order='popularity']");
 const byDate = dropdownVisible.querySelector("button[data-order='date']");
 const byTitle = dropdownVisible.querySelector("button[data-order='title']");
@@ -62,6 +64,13 @@ function toggleMenu() {
     dropdownHidden.classList.toggle("show");
     dropdownVisible.classList.toggle("show");
 };
+
+dropdownHidden.addEventListener('click', (event) => {
+    iconUp.classList.add("show");
+    iconDown.classList.remove("show");
+        dropdownHidden.classList.add("show");
+        dropdownVisible.classList.add("show");
+});
 
 // Sorting data following user's choice
 //  -------------------------------------------------------
@@ -86,7 +95,7 @@ dropdownVisible.addEventListener("click", function(event) {
             break;
 
         default:
-            console.log("what's happened?");
+            console.log("what did happen?");
             break;
     }
 });
