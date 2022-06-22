@@ -2,12 +2,16 @@
 //      Script to display the lightbox
 //  -------------------------------------------------------
 
+
 const $mediasWrapper = document.querySelector(".medias-wrapper");
 const $lightbox = document.getElementById("lightbox_modal");
+
 
 //  Show lightbox
 //  -------------------------------------------------------
 
+
+// waiting for the mediaFactory data to be loaded
 document.addEventListener("DOMContentLoaded", () => {
 	
 	$mediasWrapper.addEventListener("click", (e) => {
@@ -57,80 +61,62 @@ document.addEventListener("DOMContentLoaded", () => {
 				};
 			};
 			
-			function nextElt(params) {
+			function nextElt() {
 				index++;
 				if (index === thumbnails.length) {
 					index = 0;
-				}
+				};
 				showLightbox(thumbnails[index]);
-			}
+			};
 
-			function previousElt(params) {
+			function previousElt() {
 				index--;
 				if (index === -1) {
 					index = thumbnails.length - 1;
-				}
+				};
 				showLightbox(thumbnails[index]);
-			}
+			};
 			
+			// spread the "click" listener to each node element created
 			[...document.querySelectorAll('.next')].map(elt =>{
-				elt.addEventListener("click", function() {
-				nextElt();
-				});
-				document.addEventListener("keyup", function() {
-					// rajouter condition pour quel cle keyup
-					// document.addEventListener("keyup", function() {
-					//     console.log("hello");;
-					// });
-					console.log(e.keyCode);
-					if (e.key === "Enter" || e.key === "ArrowRight") {
-
-						nextElt();
-					}
+				elt.addEventListener("click", function(e) {
+					nextElt();
+					console.log(index);
 				});
 			});
 			
-
 			[...document.querySelectorAll('.previous')].map(elt =>{
 				elt.addEventListener("click", function() {
 					previousElt();
+					console.log(index);
 				});
+			});
+
+			// listen to the keyboard event
+			document.addEventListener("keyup", function(event) {
+				if (event.key === "ArrowRight") {
+					nextElt();
+					event.stopImmediatePropagation();
+					console.log(index);
+				} else if (event.key === "ArrowLeft") {
+					previousElt();
+					event.stopImmediatePropagation();
+					console.log(index);
+				} else {
+					event.stopImmediatePropagation();
+					console.log("touche clavier non prévue");
+				};
 			});
 		};
 
-		
 		showLightbox(imageWrapper);
-		
-			// // Listen to "keyup" on next & previous
-			// document.querySelector(".next").addEventListener("keyup", function(e) {
-			// 	if (e.key === "Enter" || e.key === "ArrowRight") {
-			// 		// console.log("Selection suivante");
-			// 		index++;
-			// 		if (index === thumbnails.length) {
-			// 			index = 0;
-			// 		}
-			// 		showLightbox(thumbnails[index]);
-		
-			// 	}
-			// });
-		
-			// document.querySelector(".previous").addEventListener("keyup", function(e) {
-			// 	if (e.key === "Enter" || e.key === "ArrowLeft") {
-			// 		// console.log("Selection précedente");
-			// 		index--;
-			// 		if (index === -1) {
-			// 			index = thumbnails.length - 1;
-			// 		}
-			// 		showLightbox(thumbnails[index]);
-			// 	}
-			// });
 	});
 });
 
 
-
 // Hide Lightbox
 //  -------------------------------------------------------
+
 
 function closeLightbox() {
     $lightbox.classList.remove("show");
