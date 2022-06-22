@@ -16,8 +16,7 @@ function photographerFactory(photographer) {
         
         const img = document.createElement( "img" );
         img.setAttribute("src", `assets/photographers/Photographers ID Photos/${portrait}`);
-        img.setAttribute("alt", " ");
-        img.setAttribute("aria-label", name);
+        img.setAttribute("alt", `Portrait de ${name}`);
         
         const h2 = document.createElement( "h2" );
         h2.textContent = name;
@@ -25,18 +24,22 @@ function photographerFactory(photographer) {
         
         const link = document.createElement( "a");
         link.setAttribute("href", `photographer.html?id=${id}`);
+        link.setAttribute("aria-label", `Lien vers la page de ${name}`);
         
         const pLoc = document.createElement( "p" );
         pLoc.classList.add("lieu");
+        pLoc.setAttribute("tabindex", "0");
         pLoc.textContent = `${city}, ${country}`;
         
         const pTag = document.createElement( "p" );
-        pTag.textContent = `${tagline}`;
         pTag.classList.add("devise");
+        pTag.setAttribute("tabindex", "0");
+        pTag.textContent = `${tagline}`;
         
         const pPrice = document.createElement( "p" );
-        pPrice.textContent = `${price}€ / jour`;
         pPrice.classList.add("prix");
+        pPrice.setAttribute("tabindex", "0");
+        pPrice.textContent = `${price}€ / jour`;
         
         const article = document.createElement( "article" );
         article.appendChild(link);

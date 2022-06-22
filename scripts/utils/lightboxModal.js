@@ -35,11 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					<img class="icons next" src="assets/icons/arrowRight.svg"/>
 				</div>
                 <div class="lightbox">
-                    <iframe 
-                        height="600" 
-                        width="600" 
-                        src="${video.src}"
-                    ></iframe>
+                    <iframe src="${video.src}"></iframe>
                 </div>
 				<h2>${video.getAttribute("alt")}</h2>
                 `;
