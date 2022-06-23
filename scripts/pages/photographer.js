@@ -12,6 +12,7 @@ const photographerIdUrl = Number(searchParams.get("id"));
 let mediaList = [];
 let mediaLikes = [];
 let mediaSection = "";
+let selectedPhotographer;
 
 
 async function displayData() {
@@ -20,7 +21,7 @@ async function displayData() {
     const { photographers, media } = await getPhotographers();
     
     //  Collect the selected photographer and his/her works through filter on ID & destructure it
-    const [selectedPhotographer] = photographers.filter(photographer => photographer.id === photographerIdUrl);
+    [selectedPhotographer] = photographers.filter(photographer => photographer.id === photographerIdUrl);
     mediaList = media.filter(media => media.photographerId === photographerIdUrl);
     
     //  Call the photographerFactory (and its getCardDOM method) for the selected photographer
@@ -49,23 +50,25 @@ async function displayData() {
     const article = document.querySelector( "article" );
     article.appendChild(img);
     article.appendChild(h1);
-    
-    //  Display media cards inside the DOM "medias-wrapper"
-    //  -------------------------------------------------------
+    sortData();
+    totalLikes();
+};
+
+//  Display media cards inside the DOM "medias-wrapper"
+//  -------------------------------------------------------
+function createGallery() {
     mediaSection = document.querySelector(".medias-wrapper");
-    
+
     mediaList.forEach(media => {
         const template = 
         new MediaCard(selectedPhotographer, media).createMediaCard();
         mediaSection.innerHTML += template;
     });
-    
 };
 
 //  Create the "totalLikes" division for the whole page
 //  -------------------------------------------------------
-async function totalLikes() {
-    await displayData();
+function totalLikes() {
     const pPrice = document.querySelector( "p.prix" );
     let nbLikes = 0;
     
@@ -80,9 +83,10 @@ async function totalLikes() {
         <img class='totalLikes' src='assets/icons/heartBlack.svg' />
         </div>`
         );
-    }
+    };
     
-totalLikes();
+    displayData();
+
 
 
 

@@ -13,7 +13,7 @@
   <!-- <div class="container-all"> -->
   <header>
     <a href="index.html" class="container" aria-label="Retour à la page d'accueil">
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye logo"/>
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye logo" />
     </a>
   </header>
   <main id="main">
@@ -21,10 +21,12 @@
       <button class="contact_button">Contactez-moi</button>
     </div>
     <div class="sorter-wrapper">
-      <img id="down" class="icons" src="assets/icons/arrowDown.svg" alt="chevron descendant" aria-label="développer le menu de tri"/> 
-      <img id="up" class="icons" src="assets/icons/arrowUp.svg" alt="chevron ascendant" aria-label="réduire le menu de tri"/>
+      <img id="down" class="icons" src="assets/icons/arrowDown.svg" alt="chevron descendant"
+        aria-label="développer le menu de tri" />
+      <img id="up" class="icons" src="assets/icons/arrowUp.svg" alt="chevron ascendant"
+        aria-label="réduire le menu de tri" />
       <label for="current-order">Trier par</label>
-      <button id="current-order"  >Popularité
+      <button id="current-order">Popularité
       </button>
       <div id="options-order">
         <button data-order="popularity">Popularité
@@ -34,13 +36,15 @@
       </div>
     </div>
     <div class="medias-wrapper"></div>
+
     <div id="lightbox_modal">
     </div>
     <div id="contact_modal">
       <div class="modal">
         <header>
           <span class="close">
-          <img src="assets/icons/closeWhite.svg" alt="croix de fermeture" aria-label="fermer le formulaire de contact" />
+            <img src="assets/icons/closeWhite.svg" alt="croix de fermeture"
+              aria-label="fermer le formulaire de contact" />
           </span>
           <h2>Contactez-moi</h2>
           <h2 class="photographer-contact">: </h2>
@@ -48,26 +52,28 @@
         <form id="form">
           <div class="formData">
             <label for="first">Prénom</label>
-            <input class="text-control" id="first" name="firstName" minlength="2" maxlength="25" placeholder="Entre 2 et 25 caractères" type="text"/>
+            <input class="text-control" id="first" name="firstName" minlength="2" maxlength="25"
+              placeholder="Entre 2 et 25 caractères" type="text" />
           </div>
           <div class="formData">
             <label for="last">Nom</label>
-            <input class="text-control" id="last" name="lastName" minlength="2" maxlength="25" placeholder="Entre 2 et 25 caractères" type="text"/>
+            <input class="text-control" id="last" name="lastName" minlength="2" maxlength="25"
+              placeholder="Entre 2 et 25 caractères" type="text" />
           </div>
           <div class="formData">
             <label for="email">Email</label>
-            <input class="text-control" id="email" name="email" placeholder="Caractères sans accent" type="email"/>
+            <input class="text-control" id="email" name="email" placeholder="Caractères sans accent" type="email" />
           </div>
           <div class="formData">
             <label for="message">Votre message</label>
-            <input class="text-control" id="message" name="message" maxlength="300" placeholder="300 caractères maximum" type="text" />
+            <input class="text-control" id="message" name="message" maxlength="300" placeholder="300 caractères maximum"
+              type="text" />
           </div>
           <button id="submit" class="contact_button" type="submit">Envoyer</button>
         </form>
       </div>
     </div>
   </main>
-
   <!-- ??? Modification ordre des scripts ??? -->
   <script src="scripts/pages/service.js"></script>
   <script src="scripts/factories/photographerFactory.js"></script>
@@ -80,5 +86,3 @@
 </body>
 
 </html>
-
-

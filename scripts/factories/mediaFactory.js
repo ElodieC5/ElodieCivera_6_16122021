@@ -22,9 +22,11 @@ class MediaCard {
 		const mediaVid = `<video class="film" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
 
 		return `
-        <div class="media-thumbnail">
-        ${this.mediaSample.image ? mediaImg : mediaVid}
-        <h3 data-date="${this.mediaSample.date}">${this.mediaSample.title}</h3>
+    <div class="media-thumbnail">
+		<div class="container-media" tabindex="0">
+        	${this.mediaSample.image ? mediaImg : mediaVid}
+		</div>
+        	<h3 data-date="${this.mediaSample.date}">${this.mediaSample.title}</h3>
         <div class="likes-btn" aria-label="likes">
           <div class="container-number" data-idmedia="${this.mediaSample.id}">
             ${this.mediaSample.likes}
@@ -33,8 +35,9 @@ class MediaCard {
             <img class="imgHeart" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
               onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
           </div>
-        </div>
+       
       </div>
+	</div>
         `;
 	}
 }

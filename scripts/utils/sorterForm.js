@@ -6,48 +6,40 @@
 //  Sort the media cards inside the DOM "medias-wrapper" (by "Popularity" by default)
 //  -------------------------------------------------------
 
-    async function sortData(sortParams) {
-        await displayData();
-        const mediaThumbnails = [...document.querySelectorAll(".media-thumbnail")];
-        mediaSection.innerHTML = "";
+function sortData(sortParams) {
 
         switch (sortParams) {   
             
             case "popularity" :
-                mediaThumbnails.sort(function(a, b) {
-                    return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
+                mediaList.sort(function(a, b) {
+                return b.likes - a.likes;   
                 });
-                mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
                 break;
                 
             case "date" : 
-                mediaThumbnails.sort(function(a, b) {
-                    let dateA = new Date(a.querySelector("h3").getAttribute("data-date")), dateB = new Date(b.querySelector("h3").getAttribute("data-date"));
+                mediaList.sort(function(a, b) {
+                    let dateA = new Date(a.date), dateB = new Date(b.date);
                     return dateA - dateB;
                 });
-                mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
                 break;
                 
             case "title" :
-                mediaThumbnails.sort(function(a, b) {
-                        let titleA = a.querySelector("h3").innerText.toLowerCase(), titleB = b.querySelector("h3").innerText.toLowerCase();
+                mediaList.sort(function(a, b) {
+                        let titleA = a.title, titleB = b.title;
                         if (titleA < titleB) return -1;
                         if (titleA > titleB) return 1;
                         return 0;
                 });
-                mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
                 break;
-
-            default :
-                mediaThumbnails.sort(function(a, b) {
-                    return a.querySelector(".container-number").innerText - b.querySelector(".container-number").innerText;   
+                
+                default :
+                mediaList.sort(function(a, b) {
+                    return b.likes - a.likes;   
                 });
-                mediaThumbnails.forEach(media => mediaSection.innerHTML += media.outerHTML); 
                 break;
-        }
-    }
-
-// sortData();  
+            };
+            createGallery();
+    };
 
 //  Display sorter menu through...
 //  -------------------------------------------------------
