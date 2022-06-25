@@ -19,7 +19,7 @@ class MediaCard {
 		namePortrait = namePortrait.split(" ");
 
 		const mediaImg = `<img class="photo" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}" />`;
-		const mediaVid = `<video class="film" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
+		const mediaVid = `<video controls class="film" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
 
 		return `
     <div class="media-thumbnail">

@@ -18,7 +18,7 @@ init();
 // waiting for the mediaFactory data to be loaded
 
 function myLightbox() {
-	 thumbnails = [...document.querySelectorAll(".media-thumbnail")];
+	thumbnails = [...document.querySelectorAll(".media-thumbnail")];
 	const cardsGallery = document.querySelectorAll(".container-media");
 
 	// click

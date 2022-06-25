@@ -3,6 +3,13 @@ body {
 	margin: auto;
 }
 
+@media screen and (min-width: 1440px) {
+	body {
+	width: 75%;
+	margin: auto;
+	}
+}
+
 button {
 	font-size: 20px;
 	font-weight: bold;
@@ -166,6 +173,11 @@ button:hover {
 	font-weight: 400;
 	margin: 10px 0 0 0;
 	
+}
+
+.container-media {
+	height: 100%;
+	width: 100%;
 }
 
 .likes-btn {
