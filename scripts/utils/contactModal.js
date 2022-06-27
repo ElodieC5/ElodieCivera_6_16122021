@@ -9,7 +9,7 @@ const close = document.querySelector(".close");
 const userInputs = document.querySelectorAll("input");
 const submit = document.getElementById('submit');
 
-const regChar = /^[A-Za-za-zàâçéèêëîïôûùüÿñæœ.;:!#$%&'*+/=?^_`{|}~-]{2,25}$/;
+const regChar = /^[A-Za-za-zàâçéèêëîïôûùüÿñæœ.;:!<>#$%&'*+/=?^_`{|}~-]{2,25}$/;
 const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
 
 modalBtn.addEventListener("click", displayModal);

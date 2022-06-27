@@ -38,6 +38,7 @@ function sortData(sortParams) {
                 });
                 break;
             };
+            // re-display the gallery once it has been sorted out :
             createGallery();
     };
 
@@ -87,7 +88,7 @@ dropdownVisible.addEventListener("click", function(event) {
             break;
 
         default:
-            console.log("what did happen?");
+            console.log("what's happening?");
             break;
     }
 });

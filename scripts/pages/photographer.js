@@ -50,15 +50,19 @@ async function displayData() {
     const article = document.querySelector( "article" );
     article.appendChild(img);
     article.appendChild(h1);
+
+    // sort by popularity by default - popularity is the default case for the function sortData
     sortData();
     totalLikes();
 };
 
-//  Display media cards inside the DOM "medias-wrapper"
+//  Create & display media cards inside the DOM "medias-wrapper"
 //  -------------------------------------------------------
 function createGallery() {
     mediaSection = document.querySelector(".medias-wrapper");
 
+    // first create the media card as an instance of MediaCard through appropriate method 
+    // then display it in mediaSection - see line 67
     mediaList.forEach(media => {
         const template = 
         new MediaCard(selectedPhotographer, media).createMediaCard();

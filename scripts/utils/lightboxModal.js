@@ -1,12 +1,15 @@
 //  -------------------------------------------------------
 //      Script to display the lightbox
 //  -------------------------------------------------------
+
+
+// waiting for all the container-media to be available prior to launch the lightbox
 function init() {
 	setTimeout(() => {
 		// console.log(document.querySelector('.container-media'));
 		myLightbox();
 	}, 500);
-}
+};
 
 let index;
 let thumbnails;
@@ -14,8 +17,6 @@ init();
 
 //  Show lightbox
 //  -------------------------------------------------------
-
-// waiting for the mediaFactory data to be loaded
 
 function myLightbox() {
 	thumbnails = [...document.querySelectorAll(".media-thumbnail")];
@@ -30,7 +31,8 @@ function myLightbox() {
 			// console.log(e.target);
 		})
 	);
-// clavier
+
+	// keyup
 	cardsGallery.forEach((card) => card.addEventListener("keyup", (e) => {
 		const imageWrapper = e.target.closest(".media-thumbnail");
 		index = thumbnails.indexOf(imageWrapper);
@@ -40,12 +42,9 @@ function myLightbox() {
 		if (e.code === "Enter") {
 			console.log('yesss');
 			showLightbox(imageWrapper);
-
 		}
 	})
 );
-
-
 }
 
 // const thumbnails = [...document.querySelectorAll(".media-thumbnail")];
@@ -68,7 +67,7 @@ function showLightbox(imageWrapper) {
                 <div class="lightbox">
                     <iframe src="${video.src}"></iframe>
                 </div>
-				<h2>${video.getAttribute("alt")}</h2>
+				<h2>${video.getAttribute("aria-label")}</h2>
                 `;
 			document.getElementById("lightbox_modal").classList.add("show");
 		}
@@ -135,8 +134,6 @@ function showLightbox(imageWrapper) {
 		}
 	});
 }
-
-// showLightbox(imageWrapper);
 
 // Hide Lightbox
 //  -------------------------------------------------------

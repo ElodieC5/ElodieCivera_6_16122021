@@ -26,13 +26,13 @@ button {
 button:hover {
 	outline: 2px solid black;
 	border-radius: 5px;
-	background-color: #db8876;
+	background-color: #D3573C;
 	color: black;
   }
  button:focus {
 	outline: 2px solid black;
 	border-radius: 5px;
-	background-color: #db8876;
+	background-color: #D3573C;
 	color: black;
   }
 
@@ -111,7 +111,7 @@ button:hover {
 	z-index: 5;
 	right: 3%;
 	bottom: 0%;
-	background: #db8876;
+	background: #D3573C;
 	border-radius: 2px;
 	font-size: 24px;
 	font-weight: 500;
@@ -192,6 +192,11 @@ button:hover {
 	height: 21px;
 	width: 21px;
 	margin-left: 3px;
+}
+
+.alreadyLiked {
+	color:#FFFFFF;
+	background-color: #901C1C;
 }
 
 /*	SORTER	*/
@@ -346,7 +351,7 @@ label {
 
 .modal {
 	border-radius: 5px;
-	background-color: #db8876;
+	background-color: #D3573C;
 	height: 750px;
 	/* height: 85%; */
 	width: 60%;

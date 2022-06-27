@@ -18,25 +18,26 @@ class MediaCard {
 		let namePortrait = this.selectedPhotographer.name;
 		namePortrait = namePortrait.split(" ");
 
-		const mediaImg = `<img class="photo" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}" />`;
-		const mediaVid = `<video controls class="film" alt="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
+		const mediaImg = `<img class="photo" alt="${this.mediaSample.title}" aria-label="" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.image}" />`;
+		const mediaVid = `<video controls class="film" aria-label="${this.mediaSample.title}" src="assets/photographers/${namePortrait[0]}/${this.mediaSample.video}"></video>`;
 
 		return `
     <div class="media-thumbnail">
 		<div class="container-media" tabindex="0">
         	${this.mediaSample.image ? mediaImg : mediaVid}
 		</div>
-        	<h3 data-date="${this.mediaSample.date}">${this.mediaSample.title}</h3>
+        <h3 data-date="${this.mediaSample.date}" tabindex="0">
+			${this.mediaSample.title}
+		</h3>
         <div class="likes-btn" aria-label="likes">
-          <div class="container-number" data-idmedia="${this.mediaSample.id}">
+          <div class="container-number" data-idmedia="${this.mediaSample.id}" aria-label="nombre de likes" tabindex="0">
             ${this.mediaSample.likes}
           </div>
-          <div class="container-image">
-            <img class="imgHeart" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
+          <div class="container-image" tabindex="0">
+            <img class="imgHeart" alt="icône coeur" aria-label="j'aime" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
               onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
           </div>
-       
-      </div>
+      	</div>
 	</div>
         `;
 	}

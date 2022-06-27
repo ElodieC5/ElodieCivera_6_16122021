@@ -19,12 +19,13 @@ function photographerFactory(photographer) {
         img.setAttribute("alt", `Portrait de ${name}`);
         
         const h2 = document.createElement( "h2" );
-        h2.textContent = name;
         h2.classList.add("accueil");
+        h2.setAttribute("tabindex", "0");
+        h2.textContent = name;
         
         const link = document.createElement( "a");
         link.setAttribute("href", `photographer.html?id=${id}`);
-        link.setAttribute("aria-label", `Lien vers la page de ${name}`);
+        link.setAttribute("aria-label", `Page de ${name}`);
         
         const pLoc = document.createElement( "p" );
         pLoc.classList.add("lieu");
