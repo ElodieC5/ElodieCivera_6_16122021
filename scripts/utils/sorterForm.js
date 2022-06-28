@@ -53,15 +53,15 @@ const byPopularity = dropdownVisible.querySelector("button[data-order='popularit
 const byDate = dropdownVisible.querySelector("button[data-order='date']");
 const byTitle = dropdownVisible.querySelector("button[data-order='title']");
 
-function toggleMenu() {
-    dropdownHidden.classList.toggle("show");
-    dropdownVisible.classList.toggle("show");
-};
+// function toggleMenu() {
+//     dropdownHidden.classList.toggle("show");
+//     dropdownVisible.classList.toggle("show");
+// };
 
 dropdownHidden.addEventListener('click', (event) => {
     iconUp.classList.add("show");
     iconDown.classList.remove("show");
-        dropdownHidden.classList.add("show");
+        dropdownHidden.classList.remove("show");
         dropdownVisible.classList.add("show");
 });
 
@@ -75,16 +75,19 @@ dropdownVisible.addEventListener("click", function(event) {
         case byDate:
             dropdownHidden.innerText = "Date";
             sortData("date");
+            iconUp.classList.remove("show");
             break;
             
         case byPopularity:
             dropdownHidden.innerText = "Popularité";
             sortData("popularity");
+            iconUp.classList.remove("show");
             break;
                 
         case byTitle:
             dropdownHidden.innerText = "Titre";
             sortData("title");
+            iconUp.classList.remove("show");
             break;
 
         default:
@@ -98,7 +101,8 @@ dropdownVisible.addEventListener("click", function(event) {
 
 document.addEventListener('click', (event) => {
     if (event.target != dropdownHidden && event.target != dropdownVisible) {
-        dropdownHidden.classList.remove("show");
+        dropdownHidden.classList.add("show");
         dropdownVisible.classList.remove("show");
+        iconUp.classList.remove("show");
     }
 });

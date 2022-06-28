@@ -20,17 +20,17 @@
     <div class="photograph-header">
       <button class="contact_button">Contactez-moi</button>
     </div>
-    <div class="sorter-wrapper">
-      <img id="down" class="icons" src="assets/icons/arrowDown.svg" alt="chevron descendant"
-        aria-label="développer le menu de tri" />
-      <img id="up" class="icons" src="assets/icons/arrowUp.svg" alt="chevron ascendant"
-        aria-label="réduire le menu de tri" />
+   <!-- le trigger du menu a comme attributs role=”button”, aria-haspopup=”listbox”, aria-expanded. 
+      Liste d’options : role=”listbox”, aria-activedescendant, aria-selected, aria-labelledby qui pointe vers l’input label -->
+    <div class="sorter-wrapper" aria-label="menu de tri">
       <label for="current-order">Trier par</label>
-      <button id="current-order">Popularité
-      </button>
-      <div id="options-order">
-        <button data-order="popularity">Popularité
-        </button>
+      <button id="current-order" class="show" aria-expanded="false">Popularité</button>
+      <img id="down" class="icons" src="assets/icons/arrowDown.svg" alt="chevron descendant"
+        aria-label="développer le menu de tri" tabindex="0"/>
+      <div id="options-order" aria-expanded="true">
+        <img id="up" class="icons" src="assets/icons/arrowUp.svg" alt="chevron ascendant"
+            aria-label="réduire le menu de tri" tabindex="0"/>
+        <button data-order="popularity">Popularité</button>
         <button data-order="date">Date</button>
         <button data-order="title">Titre</button>
       </div>
