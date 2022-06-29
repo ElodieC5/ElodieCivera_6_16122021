@@ -277,9 +277,10 @@ label {
 /*--------------*/
 
 #lightbox_modal.show {
-	display: none;
+	/* display: none; */
 	position: fixed;
 	top: 0%;
+	left: 0%;
 	height: 100%;
 	width: 100%;
 	background-color: #E5E5E5;
@@ -343,6 +344,7 @@ label {
 	position: fixed;
 	z-index: 9;
 	top: 0%;
+	left: 0%;
 	height: 100%;
 	width: 100%;
 	overflow: auto;
