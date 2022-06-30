@@ -13,23 +13,44 @@ const regChar = /^[A-Za-za-zàâçéèêëîïôûùüÿñæœ.;:!<>#$%&'*+/=?^_
 const regEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
 
 modalBtn.addEventListener("click", displayModal);
+modal.addEventListener("keyup", function(e) {
+	if (e.key === "Escape") {
+		closeModal();
+	};
+});
+
+userInputs.forEach((input) => {
+input.addEventListener("keyup", function(e) {
+	if (e.key === "Escape") {
+		closeModal();
+	};
+});
+});
+
 close.addEventListener("click", closeModal);
-// userInputs.forEach(input => input.addEventListener('focus', checkInput));
+close.addEventListener("keyup", function(e) {
+	if (e.key === "Enter") {
+		closeModal();
+	};
+});
+
 submit.addEventListener("click", checkInput);
 
 //  Display Modal is called through...
 function displayModal() {
     const whichPhotographer = document.querySelector(".photographer-contact");
     const id = document.querySelector(".photograph-header article > h1");
-    whichPhotographer.textContent = id.textContent;
+	whichPhotographer.textContent = id.textContent;
     modal.style.display = "block";
+	whichPhotographer.focus();
 };
 
 
 //  Close Modal is also called through onclick on the "close.svg" (see photographer.html)
 function closeModal() {
     modal.style.display = "none";
-}
+	document.getElementById("form").reset();
+};
 
 
 // FORM validation
@@ -107,14 +128,13 @@ function checkInput(e) {
 				break;
 		};
 		if(i === 4) {
-			closeModal();
 			// console.log([...userInputs].map(input => input.value));
             let results = Array.from(userInputs);
             results.map((input) => {
-            console.log(input.value)
+				console.log(input.value)
             });
-
-            document.getElementById("form").reset();
+			closeModal();
+            // document.getElementById("form").reset();
 		};
 	});
 };

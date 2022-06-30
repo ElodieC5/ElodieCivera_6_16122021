@@ -57,13 +57,13 @@ function showLightbox(imageWrapper) {
 		if (video) {
 			document.getElementById("lightbox_modal").innerHTML = `
 				<div class="icons">
-				<img class="icons close" id="close" src="assets/icons/closeBlack.svg" onclick="closeLightbox()" tabindex="0"/>
+				<img id="close" class="icons close" src="assets/icons/closeBlack.svg" alt="croix de fermeture" aria-label="fermer visionneuse" onclick="closeLightbox()" tabindex="0"/>
 
-					<img class="icons previous" src="assets/icons/arrowLeft.svg" tabindex="0"/>
-					<img class="icons next" src="assets/icons/arrowRight.svg" tabindex="0"/>
+					<img id="previous" class="icons previous" src="assets/icons/arrowLeft.svg" alt="chevron gauche" aria-label="media précédent" tabindex="0"/>
+					<img id="next" class="icons next" src="assets/icons/arrowRight.svg" alt="chevron droit" aria-label="media suivant" tabindex="0"/>
 				</div>
                 <div class="lightbox">
-                    <iframe src="${video.src}" tabindex="0"></iframe>
+                    <iframe src="${video.src}" aria-label="${video.title}" tabindex="0"></iframe>
                 </div>
 				<h2 tabindex="0">${video.getAttribute("aria-label")}</h2>
                 `;
@@ -71,19 +71,19 @@ function showLightbox(imageWrapper) {
 		if (image) {	
 			document.getElementById("lightbox_modal").innerHTML = `
                 <div class="icons">
-				<img class="icons close" id="close" src="assets/icons/closeBlack.svg" onclick="closeLightbox()" tabindex="0" />
-				<img class="icons previous" src="assets/icons/arrowLeft.svg" tabindex="0"/>
-				<img class="icons next" src="assets/icons/arrowRight.svg" tabindex="0"/>
+				<img id="close" class="icons close" src="assets/icons/closeBlack.svg" alt="croix de fermeture" aria-label="fermer visionneuse" onclick="closeLightbox()" tabindex="0" />
+				<img id="previous" class="icons previous" src="assets/icons/arrowLeft.svg" alt="chevron gauche" aria-label="media précédent" tabindex="0"/>
+				<img id="next" class="icons next" src="assets/icons/arrowRight.svg" alt="chevron droit" aria-label="media suivant" tabindex="0"/>
                 </div>
                 <div class="lightbox">
-                    <img src="${image.src}" tabindex="0"/>    
+                    <img src="${image.src}" alt="${image.alt}" tabindex="0"/>    
                 </div>
 				<h2 tabindex="0">${image.alt}</h2>
 				`;
 		};
 
 		document.getElementById("lightbox_modal").classList.add("show");
-			document.getElementById("close").focus();	
+		document.getElementById("close").focus();	
 	};
 
 	function nextElt() {
@@ -123,7 +123,7 @@ function showLightbox(imageWrapper) {
 		if (document.activeElement === document.querySelector("h2") && event.key === "Tab") {	
 			window.setTimeout( () => {
 				document.getElementById("close").focus();
-			}, 900);
+			}, 800);
 		};
 		
 		// all keyboard events
@@ -135,12 +135,20 @@ function showLightbox(imageWrapper) {
 			previousElt();
 			event.stopImmediatePropagation();
 			console.log(index);
+		} else if (document.activeElement === document.getElementById("next") && event.key === "Enter") {
+			nextElt();
+			event.stopImmediatePropagation();
+			console.log(index);
+		} else if (document.activeElement === document.getElementById("previous") && event.key === "Enter") {
+			previousElt();
+			event.stopImmediatePropagation();
+			console.log(index);
 		} else if (document.activeElement === document.getElementById("close") && event.key === "Enter") {
+			closeLightbox();
+		} else if (event.key === "Escape") {
 			closeLightbox();
 		} else if (event.key === "Tab" || event.key === "Enter") {
 			console.log("navigation en cours");
-		} else if (event.key === "Escape") {
-			closeLightbox();
 		} else {
 			event.stopImmediatePropagation();
 			console.log("touche clavier non prévue");
