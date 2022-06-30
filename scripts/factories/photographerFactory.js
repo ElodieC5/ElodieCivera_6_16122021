@@ -16,7 +16,8 @@ function photographerFactory(photographer) {
         
         const img = document.createElement( "img" );
         img.setAttribute("src", `assets/photographers/Photographers ID Photos/${portrait}`);
-        img.setAttribute("alt", `Portrait de ${name}`);
+        img.setAttribute("alt", "Photo du photographe");
+        img.setAttribute("aria-label", `Photo représentative de ${name}`);
         
         const h2 = document.createElement( "h2" );
         h2.classList.add("accueil");

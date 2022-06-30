@@ -58,7 +58,7 @@ const byTitle = dropdownVisible.querySelector("button[data-order='title']");
 //     dropdownVisible.classList.toggle("show");
 // };
 
-dropdownHidden.addEventListener('click', (event) => {
+dropdownHidden.addEventListener('click', () => {
     iconUp.classList.add("show");
     iconDown.classList.remove("show");
         dropdownHidden.classList.remove("show");

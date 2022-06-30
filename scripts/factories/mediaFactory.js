@@ -29,12 +29,12 @@ class MediaCard {
         <h3 data-date="${this.mediaSample.date}" tabindex="0">
 			${this.mediaSample.title}
 		</h3>
-        <div class="likes-btn" aria-label="likes">
-          <div class="container-number" data-idmedia="${this.mediaSample.id}" aria-label="nombre de likes" tabindex="0">
+        <div class="likes-btn">
+          <div class="container-number" data-idmedia="${this.mediaSample.id}" tabindex="0">
             ${this.mediaSample.likes}
           </div>
           <div class="container-image" tabindex="0">
-            <img class="imgHeart" alt="icône coeur" aria-label="j'aime" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
+            <img class="imgHeart" alt="coeur" aria-label="nombre de j'aime" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
               onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
           </div>
       	</div>
