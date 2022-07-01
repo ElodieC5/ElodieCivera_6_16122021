@@ -9,7 +9,7 @@ function init() {
 		// console.log(document.querySelector('.container-media'));
 		myLightbox();
 	}, 500);
-};
+}
 
 let index;
 let thumbnails;
@@ -22,12 +22,12 @@ function myLightbox() {
 
 	thumbnails = [...document.querySelectorAll(".media-thumbnail")];
 	const cardsGallery = document.querySelectorAll(".container-media");
-
+	
 	// listen to the click event
-	cardsGallery.forEach((card) => card.addEventListener("	", (e) => {
+	cardsGallery.forEach((card) => card.addEventListener("click", (e) => {
 		console.log(e);		
 
-		e.stopImmediatePropagation()
+		e.stopImmediatePropagation();
 		const imageWrapper = e.target.closest(".media-thumbnail");
 	 	index = thumbnails.indexOf(imageWrapper);
 		//  console.log(document.getElementById("lightbox_modal"));	
@@ -42,12 +42,12 @@ function myLightbox() {
 			const imageWrapper = e.target.closest(".media-thumbnail");
 			index = thumbnails.indexOf(imageWrapper);
 			// console.log(document.getElementById("lightbox_modal"));		
-			document.getElementById("lightbox_modal").classList.add("show")
+			document.getElementById("lightbox_modal").classList.add("show");
 			showLightbox(imageWrapper);	
 		}
 	})
 	);	
-};
+}
 
 //  Build the lightbox through the selected media
 //  -------------------------------------------------------
@@ -73,7 +73,7 @@ function showLightbox(imageWrapper) {
 				</div>
 				<h2 tabindex="0">${video.getAttribute("aria-label")}</h2>
 			`;
-		};
+		}
 		if (image) {	
 			document.getElementById("lightbox_modal").innerHTML = `
 				${controle}
@@ -82,11 +82,11 @@ function showLightbox(imageWrapper) {
             	</div>
 				<h2 tabindex="0">${image.alt}</h2>
 			`;
-		};
+		}
 			
-			document.getElementById("lightbox_modal").classList.add("show");
-			document.getElementById("close").focus();	
-	};
+		document.getElementById("lightbox_modal").classList.add("show");
+		document.getElementById("close").focus();	
+	}
 
 	// listen to the keyboard events
 	document.addEventListener("keyup", function (event) {
@@ -96,7 +96,7 @@ function showLightbox(imageWrapper) {
 			window.setTimeout( () => {
 				document.getElementById("close").focus();
 			}, 800);
-		};
+		}
 		
 		// all keyboard events
 		if (event.key === "ArrowRight") {
@@ -122,7 +122,7 @@ function showLightbox(imageWrapper) {
 		else {
 			// event.stopImmediatePropagation();
 			console.log("touche clavier non prévue");
-		};
+		}
 	});
 }
 

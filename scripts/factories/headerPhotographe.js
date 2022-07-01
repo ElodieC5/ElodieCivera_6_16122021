@@ -1,6 +1,6 @@
 const headerPhotographe = (photographe) =>{
-    const photographerSection = document.querySelector(".photograph-header");
-    photographerSection.innerHTML = `
+	const photographerSection = document.querySelector(".photograph-header");
+	photographerSection.innerHTML = `
     <article>
         <h1 class="profil" tabindex="0">${photographe.name}</h1>
         <p class="lieu" tabindex="0">${photographe.city}, ${photographe.country}</p>
@@ -9,4 +9,4 @@ const headerPhotographe = (photographe) =>{
         <img src="assets/photographers/Photographers ID Photos/${photographe.portrait}" alt="Photo du photographe" aria-label="Photo représentative de ${photographe.name}" tabindex="0">
     </article>
     `;
-}
+};

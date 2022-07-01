@@ -12,7 +12,7 @@ class MediaCard {
 		this.mediaSample = mediaSample;
 	}
 
-// This function is called through "template" = any new instance of MediaCard
+	// This function is called through "template" = any new instance of MediaCard
 
 	createMediaCard() {
 		let namePortrait = this.selectedPhotographer.name;
@@ -47,10 +47,10 @@ class MediaCard {
 
 function handleLikesButton(media) {
 
-    // select the unique media cliked thanks to its id then the containers to be inc/dec
+	// select the unique media cliked thanks to its id then the containers to be inc/dec
 
 	const idMedia = media.dataset.idmedia;
-    const totalLikes = document.querySelector(".total");
+	const totalLikes = document.querySelector(".total");
 	const containerNumber = document.querySelector(
 		`.container-number[data-idmedia="${idMedia}"]`
 	);
@@ -58,7 +58,7 @@ function handleLikesButton(media) {
 	// collect the likes number, convert & inc/dec locally/totally when cliked
     
 	let nbLikes = parseInt(containerNumber.textContent, 10);
-    let sumLikes = parseInt(totalLikes.textContent, 10)
+	let sumLikes = parseInt(totalLikes.textContent, 10);
 
 	if (containerNumber.classList.contains("alreadyLiked")) {
 		nbLikes -= 1;
@@ -67,11 +67,11 @@ function handleLikesButton(media) {
 		totalLikes.textContent = sumLikes;
 		containerNumber.classList.remove("alreadyLiked");
 	} else {
-        nbLikes += 1;
+		nbLikes += 1;
 		sumLikes += 1;
 		containerNumber.textContent = nbLikes;
 		totalLikes.textContent = sumLikes;
 		containerNumber.classList.add("alreadyLiked");
-	};
-};
+	}
+}
 
