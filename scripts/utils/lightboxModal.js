@@ -29,7 +29,7 @@ function myLightbox() {
 
 		e.stopImmediatePropagation();
 		const imageWrapper = e.target.closest(".media-thumbnail");
-	 	index = thumbnails.indexOf(imageWrapper);
+		index = thumbnails.indexOf(imageWrapper);
 		//  console.log(document.getElementById("lightbox_modal"));	
 		showLightbox(imageWrapper);
 	})

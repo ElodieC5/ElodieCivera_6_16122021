@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //  -------------------------------------------------------
 //  Factory to build photographer template
 //  Create photographer cards inside index & photographer pages
@@ -39,7 +40,7 @@ function photographerFactory(photographer) {
 		pTag.textContent = `${tagline}`;
         
 		const pPrice = document.createElement( "p" );
-		pPrice.classList.add("prix");
+		pPrice.classList.add("prixU");
 		pPrice.setAttribute("tabindex", "0");
 		pPrice.textContent = `${price}€ / jour`;
         
@@ -56,7 +57,7 @@ function photographerFactory(photographer) {
 	}
 
 	// return the "pattern object" (i.e. the photographer's properties and the method to display the associated values) out of the local scope 
-	return photographerModel = { name, id, city, country, tagline, price, portrait, getCardDOM };
+	return  { name, id, city, country, tagline, price, portrait, getCardDOM };
     
 }
 

@@ -10,7 +10,6 @@
 const searchParams = new URLSearchParams(window.location.search);
 const photographerIdUrl = Number(searchParams.get("id"));
 let mediaList = [];
-let mediaLikes = [];
 let mediaSection = "";
 let selectedPhotographer;
 
@@ -18,6 +17,7 @@ let selectedPhotographer;
 async function displayData() {
 
 	//  Call fetch function & destructure the photographers & medias
+	// eslint-disable-next-line no-undef
 	const { photographers, media } = await getPhotographers();
     
 	//  Collect the selected photographer and his/her works through filter on ID & destructure it
@@ -25,18 +25,19 @@ async function displayData() {
 	mediaList = media.filter(media => media.photographerId === photographerIdUrl);
     
 	//  Call the photographerFactory (and its getCardDOM method) for the selected photographer
+	// eslint-disable-next-line no-undef
 	headerPhotographe(selectedPhotographer);
-	function createTotalLike(params) {
-        
-	}
-
+	// eslint-disable-next-line no-undef
+	contactModal();
 	// Sort by popularity by default - popularity is the default case for the function sortData
+	// eslint-disable-next-line no-undef
 	sortData();
 	totalLikes();
 }
 
 //  Create & display media cards inside the DOM "medias-wrapper"
 //  -------------------------------------------------------
+// eslint-disable-next-line no-unused-vars
 function createGallery() {
 	mediaSection = document.querySelector(".medias-wrapper");
 
@@ -44,6 +45,7 @@ function createGallery() {
 	// then display it in mediaSection - see line 67
 	mediaList.forEach(media => {
 		const template = 
+        // eslint-disable-next-line no-undef
         new MediaCard(selectedPhotographer, media).createMediaCard();
 		mediaSection.innerHTML += template;
 	});

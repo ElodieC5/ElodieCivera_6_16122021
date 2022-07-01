@@ -6,6 +6,7 @@
 
 // Constructor pattern for the media cards
 
+// eslint-disable-next-line no-unused-vars
 class MediaCard {
 	constructor(selectedPhotographer, mediaSample) {
 		this.selectedPhotographer = selectedPhotographer;
@@ -45,6 +46,7 @@ class MediaCard {
 
 // This function is called here above while creating the "container-image"
 
+// eslint-disable-next-line no-unused-vars
 function handleLikesButton(media) {
 
 	// select the unique media cliked thanks to its id then the containers to be inc/dec
