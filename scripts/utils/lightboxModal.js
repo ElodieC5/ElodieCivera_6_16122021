@@ -27,22 +27,23 @@ function myLightbox() {
 	cardsGallery.forEach((card) => card.addEventListener("click", (e) => {
 		const imageWrapper = e.target.closest(".media-thumbnail");
 	 	index = thumbnails.indexOf(imageWrapper);
-
+		 console.log(document.getElementById("lightbox_modal"));	
 		showLightbox(imageWrapper);
 	})
 	);
 
 	// listen to the keyup event
 	cardsGallery.forEach((card) => card.addEventListener("keyup", (e) => {
-		const imageWrapper = e.target.closest(".media-thumbnail");
-		index = thumbnails.indexOf(imageWrapper);
-		
-		if (e.code === "Enter") {
-			showLightbox(imageWrapper);
-		};
+		if (document.activeElement === card && e.key === "Enter") {
+			const imageWrapper = e.target.closest(".media-thumbnail");
+			index = thumbnails.indexOf(imageWrapper);
+			console.log(document.getElementById("lightbox_modal"));		
+			console.log(imageWrapper);		
+			showLightbox(imageWrapper);	
+		}
 	})
 	);
-}
+};
 
 //  Build the lightbox through the selected media
 //  -------------------------------------------------------
@@ -80,8 +81,8 @@ function showLightbox(imageWrapper) {
                 </div>
 				<h2 tabindex="0">${image.alt}</h2>
 				`;
-		};
-
+			};
+			
 		document.getElementById("lightbox_modal").classList.add("show");
 		document.getElementById("close").focus();	
 	};
@@ -147,10 +148,12 @@ function showLightbox(imageWrapper) {
 			closeLightbox();
 		} else if (event.key === "Escape") {
 			closeLightbox();
-		} else if (event.key === "Tab" || event.key === "Enter") {
-			console.log("navigation en cours");
-		} else {
-			event.stopImmediatePropagation();
+		} 
+		// else if (event.key === "Tab" || event.key === "Enter") {
+		// 	console.log("navigation en cours");
+		// } 
+		else {
+			// event.stopImmediatePropagation();
 			console.log("touche clavier non prévue");
 		};
 

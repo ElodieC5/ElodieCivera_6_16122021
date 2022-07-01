@@ -30,8 +30,6 @@ async function displayData() {
     
 
     //  Display card inside the DOM "photograph-header" for selected photographer
-    //  -------------------------------------------------------
-    
     const span = document.querySelector("span");
     span.setAttribute("aria-label", `Ceci est la page de ${selectedPhotographer.name}`);
 
@@ -56,7 +54,7 @@ async function displayData() {
     article.appendChild(h1);
     article.appendChild(img);
 
-    // sort by popularity by default - popularity is the default case for the function sortData
+    // Sort by popularity by default - popularity is the default case for the function sortData
     sortData();
     totalLikes();
 };
