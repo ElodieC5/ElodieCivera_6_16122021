@@ -55,9 +55,6 @@ function handleLikesButton(media) {
 		`.container-number[data-idmedia="${idMedia}"]`
 	);
 
-	// let [updateMedia] = mediaList.filter(x => x.id === Number(idMedia));
-	// updateMedia.likes += 1;
-	
 	// collect the likes number, convert & inc/dec locally/totally when cliked
     
 	let nbLikes = parseInt(containerNumber.textContent, 10);

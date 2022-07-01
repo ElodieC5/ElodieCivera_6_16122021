@@ -105,7 +105,7 @@ button:hover {
 /*	LIKES & PRICE	*/
 /*------------------*/
 
-.photograph-header article p.prix {
+ .prix {
 	height: 89px;
 	position: fixed;
 	z-index: 5;

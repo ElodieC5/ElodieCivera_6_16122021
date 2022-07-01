@@ -22,12 +22,10 @@
     </div>
     <div class="sorter-wrapper">
       <label for="current-order">Trier par</label>
-      <button id="current-order" class="show">Popularité</button>
-      <img id="down" class="icons" src="assets/icons/arrowDown.svg" alt="chevron descendant"
-        aria-label="développer le menu de tri" aria-expanded="false" tabindex="0"/>
-      <div id="options-order" role=”listbox” aria-expanded="true">
-        <img id="up" class="icons" src="assets/icons/arrowUp.svg" alt="chevron ascendant"
-            aria-label="réduire le menu de tri" tabindex="0"/>
+      <button id="current-order" class="show" aria-label="développer le menu de tri" aria-expanded="false">Popularité</button>
+      <img id="down" class="icons" src="assets/icons/arrowDown.svg" alt="chevron descendant"/>
+      <div id="options-order" role=”listbox” aria-label="réduire le menu de tri" aria-expanded="true">
+        <img id="up" class="icons" src="assets/icons/arrowUp.svg" alt="chevron ascendant"/>
         <button data-order="popularity" aria-label="Trier par popularité">Popularité</button>
         <button data-order="date" aria-label="Trier par date">Date</button>
         <button data-order="title" aria-label="Trier par titre">Titre</button>
@@ -70,9 +68,11 @@
         </form>
       </div>
     </div>
+    <p class="prix" tabindex="0"><div id="totalLikes"></p>
   </main>
   <!-- ??? Modification ordre des scripts ??? -->
   <script src="scripts/pages/service.js"></script>
+  <script src="scripts/factories/headerPhotographe.js"></script>
   <script src="scripts/factories/photographerFactory.js"></script>
   <script src="scripts/factories/mediaFactory.js"></script>
   <script src="scripts/pages/photographer.js"></script>
