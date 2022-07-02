@@ -3,7 +3,8 @@
 //  -------------------------------------------------------
 
 
-// waiting for all the container-media to be available prior to launch the lightbox
+//	Waiting for all the container-media to be available prior to launch the lightbox
+//  -------------------------------------------------------
 function init() {
 	setTimeout(() => {
 		// console.log(document.querySelector('.container-media'));
@@ -17,13 +18,12 @@ init();
 
 //  Open the lightbox through the selected media
 //  -------------------------------------------------------
-
 function myLightbox() {
 
 	thumbnails = [...document.querySelectorAll(".media-thumbnail")];
 	const cardsGallery = document.querySelectorAll(".container-media");
 	
-	// listen to the click event
+	//	Listen to the click event
 	cardsGallery.forEach((card) => card.addEventListener("click", (e) => {
 		console.log(e);		
 
@@ -35,7 +35,7 @@ function myLightbox() {
 	})
 	);
 
-	// listen to the keyup event
+	//	Listen to the keyup event
 	cardsGallery.forEach((card) => card.addEventListener("keyup", (e) => {
 		e.stopImmediatePropagation();
 		if (document.activeElement === card && e.key === "Enter") {
@@ -51,7 +51,6 @@ function myLightbox() {
 
 //  Build the lightbox through the selected media
 //  -------------------------------------------------------
-
 function showLightbox(imageWrapper) {
 
 	// check if user clicked either picture or movie through the media's wrapper
@@ -83,22 +82,21 @@ function showLightbox(imageWrapper) {
 				<h2 tabindex="0">${image.alt}</h2>
 			`;
 		}
-			
 		document.getElementById("lightbox_modal").classList.add("show");
 		document.getElementById("close").focus();	
 	}
 
-	// listen to the keyboard events
+	//	Listen to the keyboard events
 	document.addEventListener("keyup", function (event) {
 
-		// force focus on close icon after navigation
+		//	... force focus on close icon after navigation
 		if (document.activeElement === document.querySelector("h2") && event.key === "Tab") {	
 			window.setTimeout( () => {
 				document.getElementById("close").focus();
 			}, 800);
 		}
 		
-		// all keyboard events
+		//	...all keyboard events
 		if (event.key === "ArrowRight") {
 			nextElt();
 			event.stopImmediatePropagation();
@@ -120,7 +118,6 @@ function showLightbox(imageWrapper) {
 			closeLightbox();
 		} 
 		else {
-			// event.stopImmediatePropagation();
 			console.log("touche clavier non prévue");
 		}
 	});
@@ -128,12 +125,13 @@ function showLightbox(imageWrapper) {
 
 // Hide Lightbox
 //  -------------------------------------------------------
-
 function closeLightbox() {
 	document.getElementById("lightbox_modal").classList.remove("show");
 	document.getElementById("lightbox_modal").innerHTML = "";
 }
 
+// Navigation Next / Previous
+//  -------------------------------------------------------
 function nextElt() {
 	index++;
 	if (index === thumbnails.length) {
@@ -141,7 +139,6 @@ function nextElt() {
 	}
 	showLightbox(thumbnails[index]);
 }
-
 function previousElt() {
 	index--;
 	if (index === -1) {

@@ -1,5 +1,6 @@
-//      Script to display the Contact Modal
-//      -------------------------------------------------------------------------------------------
+//  -------------------------------------------------------
+//  Script to display the Contact Modal
+//  -------------------------------------------------------
 
 // eslint-disable-next-line no-unused-vars
 function contactModal() {
@@ -14,13 +15,18 @@ function contactModal() {
 	const regEmail =
 		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$/;
 
+	//	Open & close modal
 	modalOpen.addEventListener("click", displayModal);
+	modalOpen.addEventListener("keyup", function (e) {
+		if (e.key === "Enter") {
+			displayModal();
+		}
+	});
 	modal.addEventListener("keyup", function (e) {
 		if (e.key === "Escape") {
 			closeModal();
 		}
 	});
-
 	userInputs.forEach((input) => {
 		input.addEventListener("keyup", function (e) {
 			if (e.key === "Escape") {
@@ -28,7 +34,6 @@ function contactModal() {
 			}
 		});
 	});
-
 	close.addEventListener("click", closeModal);
 	close.addEventListener("keyup", function (e) {
 		if (e.key === "Enter") {
@@ -38,9 +43,8 @@ function contactModal() {
 
 	submit.addEventListener("click", checkInput);
 
-	//  Display Modal is called through...
+	//  Display Modal function
 	function displayModal() {
-		console.log("aaaaa");
 		const whichPhotographer = document.querySelector(".photographer-contact");
 		const id = document.querySelector(".photograph-header article > h1");
 		whichPhotographer.textContent = id.textContent;
@@ -48,7 +52,7 @@ function contactModal() {
 		whichPhotographer.focus();
 	}
 
-	//  Close Modal is also called through onclick on the "close.svg" (see photographer.html)
+	//  Close Modal function
 	function closeModal() {
 		modal.style.display = "none";
 		document.getElementById("form").reset();
@@ -59,7 +63,6 @@ function contactModal() {
 	// when form is sumitted (or while inputs are filled in), each user's input is checked & customized error message eventually pop-up
 
 	// value of the "data-error" attribute is the error message, the error class prevents the final validation
-
 	function setErrorMessage(input, message) {
 		input.parentElement.setAttribute("data-error", message);
 		input.parentElement.setAttribute("data-error-visible", "true");
@@ -67,7 +70,6 @@ function contactModal() {
 	}
 
 	// no message when everything is fine, remove the "error" class in case it has been corrected afterwards
-
 	function setSuccessMessage(input) {
 		input.parentElement.removeAttribute("data-error");
 		input.parentElement.removeAttribute("data-error-visible");
@@ -75,20 +77,17 @@ function contactModal() {
 	}
 
 	// prevent submitting while inputs are validated
-
 	function checkInput(e) {
 		let i = 0;
 		e.preventDefault();
 
 		// each input is switched as per its name and then its value is checked
-
 		userInputs.forEach((input) => {
 			let inputName = input.name;
 			let inputValue = input.value;
 
 			// if value does not match validation requirement then call function setErrorMessage
 			// else call setSuccessMessage
-
 			switch (inputName) {
 			case "firstName":
 				if (!regChar.test(inputValue)) {
@@ -133,7 +132,6 @@ function contactModal() {
 					console.log(input.value);
 				});
 				closeModal();
-				// document.getElementById("form").reset();
 			}
 		});
 	}

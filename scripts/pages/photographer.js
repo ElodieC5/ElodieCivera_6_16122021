@@ -24,11 +24,12 @@ async function displayData() {
 	[selectedPhotographer] = photographers.filter(photographer => photographer.id === photographerIdUrl);
 	mediaList = media.filter(media => media.photographerId === photographerIdUrl);
     
-	//  Call the photographerFactory (and its getCardDOM method) for the selected photographer
+	//  Call the headerPhotgraphe factory
 	// eslint-disable-next-line no-undef
 	headerPhotographe(selectedPhotographer);
 	// eslint-disable-next-line no-undef
 	contactModal();
+
 	// Sort by popularity by default - popularity is the default case for the function sortData
 	// eslint-disable-next-line no-undef
 	sortData();
@@ -37,6 +38,7 @@ async function displayData() {
 
 //  Create & display media cards inside the DOM "medias-wrapper"
 //  -------------------------------------------------------
+
 // eslint-disable-next-line no-unused-vars
 function createGallery() {
 	mediaSection = document.querySelector(".medias-wrapper");
@@ -53,6 +55,7 @@ function createGallery() {
 
 //  Create the "totalLikes" division for the whole page
 //  -------------------------------------------------------
+
 function totalLikes() {
 	const pPrice = document.querySelector( "p.prix" );
 	let nbLikes = 0;

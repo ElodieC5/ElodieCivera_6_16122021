@@ -4,7 +4,7 @@
 //  -------------------------------------------------------
 
 
-// Constructor pattern for the media cards
+// ... Constructor pattern for the media cards
 
 // eslint-disable-next-line no-unused-vars
 class MediaCard {
@@ -13,8 +13,7 @@ class MediaCard {
 		this.mediaSample = mediaSample;
 	}
 
-	// This function is called through "template" = any new instance of MediaCard
-
+	// This function is called through "template" (= any new instance of MediaCard) inside createGallery see photographer.js
 	createMediaCard() {
 		let namePortrait = this.selectedPhotographer.name;
 		namePortrait = namePortrait.split(" ");
@@ -45,7 +44,6 @@ class MediaCard {
 }
 
 // This function is called here above while creating the "container-image"
-
 // eslint-disable-next-line no-unused-vars
 function handleLikesButton(media) {
 

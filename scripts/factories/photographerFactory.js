@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
+
 //  -------------------------------------------------------
 //  Factory to build photographer template
-//  Create photographer cards inside index & photographer pages
+//  Create photographer cards inside index page
 //  -------------------------------------------------------
 
 
@@ -39,7 +40,7 @@ function photographerFactory(photographer) {
 		pTag.setAttribute("tabindex", "0");
 		pTag.textContent = `${tagline}`;
         
-		const pPrice = document.createElement( "p" );
+		const pPrice = document.createElement( "div" );
 		pPrice.classList.add("prixU");
 		pPrice.setAttribute("tabindex", "0");
 		pPrice.textContent = `${price}€ / jour`;

@@ -6,7 +6,6 @@
 
 //  Sort the media cards inside the DOM "medias-wrapper" (by "Popularity" by default)
 //  -------------------------------------------------------
-
 function sortData(sortParams) {
 
 	switch (sortParams) {   
@@ -46,7 +45,6 @@ function sortData(sortParams) {
 
 //  Display sorter menu through...
 //  -------------------------------------------------------
-
 const dropdownHidden = document.getElementById("current-order");
 const dropdownVisible = document.getElementById("options-order");
 const iconUp = document.getElementById("up");
@@ -54,11 +52,6 @@ const iconDown = document.getElementById("down");
 const byPopularity = dropdownVisible.querySelector("button[data-order='popularity']");
 const byDate = dropdownVisible.querySelector("button[data-order='date']");
 const byTitle = dropdownVisible.querySelector("button[data-order='title']");
-
-// function toggleMenu() {
-//     dropdownHidden.classList.toggle("show");
-//     dropdownVisible.classList.toggle("show");
-// };
 
 dropdownHidden.addEventListener("click", () => {
 	iconUp.classList.add("show");
@@ -69,7 +62,6 @@ dropdownHidden.addEventListener("click", () => {
 
 // Sorting data following user's choice
 //  -------------------------------------------------------
-
 dropdownVisible.addEventListener("click", function(event) {
 	mediaSection.innerHTML = "";
 
@@ -98,13 +90,19 @@ dropdownVisible.addEventListener("click", function(event) {
 	}
 });
 
-// Close the dropdown menu if the user clicks outside of it
+// Close the dropdown menu if the user clicks outside of it or press "Escape"
 //  -------------------------------------------------------
-
 document.addEventListener("click", (event) => {
 	if (event.target != dropdownHidden && event.target != dropdownVisible) {
 		dropdownHidden.classList.add("show");
 		dropdownVisible.classList.remove("show");
 		iconUp.classList.remove("show");
 	}
+});
+document.addEventListener("keyup", (event) => {
+	if (dropdownVisible.classList.contains("show") && event.key === "Escape") {
+		iconUp.classList.remove("show");
+		dropdownHidden.classList.add("show");
+		dropdownVisible.classList.remove("show");
+	} 
 });
