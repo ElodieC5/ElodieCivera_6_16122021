@@ -25,12 +25,9 @@ function myLightbox() {
 	
 	//	Listen to the click event
 	cardsGallery.forEach((card) => card.addEventListener("click", (e) => {
-		console.log(e);		
-
 		e.stopImmediatePropagation();
 		const imageWrapper = e.target.closest(".media-thumbnail");
 		index = thumbnails.indexOf(imageWrapper);
-		//  console.log(document.getElementById("lightbox_modal"));	
 		showLightbox(imageWrapper);
 	})
 	);
@@ -40,8 +37,7 @@ function myLightbox() {
 		e.stopImmediatePropagation();
 		if (document.activeElement === card && e.key === "Enter") {
 			const imageWrapper = e.target.closest(".media-thumbnail");
-			index = thumbnails.indexOf(imageWrapper);
-			// console.log(document.getElementById("lightbox_modal"));		
+			index = thumbnails.indexOf(imageWrapper);		
 			document.getElementById("lightbox_modal").classList.add("show");
 			showLightbox(imageWrapper);	
 		}
@@ -117,9 +113,9 @@ function showLightbox(imageWrapper) {
 		} else if (event.key === "Escape") {
 			closeLightbox();
 		} 
-		else {
-			console.log("touche clavier non prévue");
-		}
+		// else {
+		// 	console.log("touche clavier non prévue");
+		// }
 	});
 }
 

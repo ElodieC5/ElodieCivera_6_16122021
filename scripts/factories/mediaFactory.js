@@ -34,7 +34,7 @@ class MediaCard {
             ${this.mediaSample.likes}
           </div>
           <div class="container-image" tabindex="0">
-            <img class="imgHeart" alt="coeur" aria-label="nombre de j'aime" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
+            <img id="imgHeart" alt="coeur" aria-label="nombre de j'aime" data-idmedia="${this.mediaSample.id}" data-nblikes="${this.mediaSample.likes}"
               onclick="handleLikesButton(this)" class="likes-btn" src="assets/icons/heart.svg" />
           </div>
       	</div>
@@ -47,7 +47,7 @@ class MediaCard {
 // eslint-disable-next-line no-unused-vars
 function handleLikesButton(media) {
 
-	// select the unique media cliked thanks to its id then the containers to be inc/dec
+	// select the unique media clicked thanks to its id then the containers to be inc/dec
 
 	const idMedia = media.dataset.idmedia;
 	const totalLikes = document.querySelector(".total");

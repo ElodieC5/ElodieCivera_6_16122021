@@ -42,7 +42,7 @@ async function displayData() {
 // eslint-disable-next-line no-unused-vars
 function createGallery() {
 	mediaSection = document.querySelector(".medias-wrapper");
-
+	
 	// first create the media card as an instance of MediaCard through appropriate method 
 	// then display it in mediaSection - see line 67
 	mediaList.forEach(media => {

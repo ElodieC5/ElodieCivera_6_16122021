@@ -38,7 +38,7 @@ function sortData(sortParams) {
 		});
 		break;
 	}
-	// re-display the gallery once it has been sorted out :
+	// (re-)display the gallery once it has been sorted out :
 	init();
 	createGallery();
 }
