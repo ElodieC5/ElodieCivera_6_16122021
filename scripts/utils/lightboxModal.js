@@ -63,10 +63,10 @@ function showLightbox(imageWrapper) {
 		if (video) {
 			document.getElementById("lightbox_modal").innerHTML = `
 				${controle}
-				<div class="lightbox">
+				<div class="lightbox video">
                     <iframe src="${video.src}" aria-label="${video.title}" tabindex="0"></iframe>
+					<h2 tabindex="0">${video.getAttribute("aria-label")}</h2>
 				</div>
-				<h2 tabindex="0">${video.getAttribute("aria-label")}</h2>
 			`;
 		}
 		if (image) {	
@@ -74,8 +74,8 @@ function showLightbox(imageWrapper) {
 				${controle}
 				<div class="lightbox">
                 	<img src="${image.src}" alt="${image.alt}" tabindex="0"/>    
+					<h2 tabindex="0">${image.alt}</h2>
             	</div>
-				<h2 tabindex="0">${image.alt}</h2>
 			`;
 		}
 		document.getElementById("lightbox_modal").classList.add("show");
